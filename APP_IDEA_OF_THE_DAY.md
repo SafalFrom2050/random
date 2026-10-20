@@ -1,54 +1,37 @@
-# App Idea of the Day: Resume Point
+# App Idea of the Day: Queue Whisper
 Date: 2026-10-21 (Japan)
 
 ## Concept
-A tiny app that helps you restart interrupted projects. Before stopping, save a quick “resume card” containing what you just did, the exact next action, and the links or files you will need.
+A lightweight, community-powered app that shows how long the line is at nearby everyday places—clinics, city offices, bakeries, laundromats, and popular lunch spots—so people can choose when to go.
 
 ## Target users
-Hobby developers, students, writers, and makers who switch between several projects and return after days or weeks away.
+People fitting errands into a lunch break, caregivers coordinating appointments, and anyone who would rather avoid an unnecessary wait.
 
 ## Problem
-Task lists say what needs doing but rarely preserve enough context to begin immediately. Returning to a project turns into rereading notes, reopening tabs, and remembering why you stopped.
+Maps can tell you where a place is, but rarely whether the service counter is backed up right now. Calling is inconvenient, and many businesses do not publish live wait estimates.
 
 ## Core workflow
-1. Create a project such as “Weekend game.”
-2. Tap “Pause” and answer three prompts: “Where did you stop?”, “What is the next physical action?”, and “What might trip you up?”
-3. Attach a link, screenshot, or short code snippet.
-4. When returning, open a single resume card rather than the full project history.
-5. Tap “Started” and optionally record whether the card helped. Replace the card at the next pause.
-
-Example card:
-- Stopped: The player moves, but collisions fail on the left wall.
-- Next action: Open player.dart and reproduce the issue in level 2.
-- Watch out: The test map uses a different tile size.
-- Context: Repository link and a screenshot of the collision bounds.
+1. Search a place or browse nearby locations.
+2. See the latest wait estimate, when it was reported, and how many people contributed.
+3. After visiting, tap one of three buttons: “No wait,” “Under 15 min,” or “15+ min.”
+4. Optionally confirm whether the estimate was close when you leave.
+5. Get a gentle notification when a followed place is usually quieter.
 
 ## MVP features
-- Project list with one current resume card per project.
-- Three short text fields plus links and one optional image.
-- Automatic save and a last-updated timestamp.
-- Share-sheet capture for adding a URL to a project.
-- Search, project archiving, and Markdown export/import.
-- Optional user-scheduled reminder to reopen a project.
-
-Keep collaboration, AI summaries, time tracking, and full task management outside the initial scope.
+- Place search and categories for common errands.
+- One-tap wait reports with automatic timestamp and coarse location.
+- Confidence labels that fade as reports get older.
+- “Quiet hours” based on recent reports, clearly marked as a pattern rather than a live guarantee.
+- Report moderation, duplicate-place merging, and a way for businesses to claim and correct their listing.
 
 ## Build approach
-Build a Flutter mobile app with SQLite for projects and cards, app-private image storage, and native share-sheet integration. Store everything locally and require no account. Use a simple Markdown export with bundled image files for backups. Treat shared URLs as references; the app does not need to fetch or summarize their contents.
-
-The central data model is Project → CurrentResumeCard, with a small attachment list. Editing a card replaces its content; undo can protect against accidental edits without introducing a complex history interface.
+Start with one city and a small set of high-traffic venues. Use a map/search provider for place discovery, a simple backend for timestamped reports, and an aggregation rule that weights recent reports more heavily. Do not track users continuously; ask for location only while searching or submitting a report. Let users report without creating an account, with rate limits to reduce spam.
 
 ## Validation plan
-Recruit six people with at least two unfinished projects. For one week, ask them to save a card before pausing and return to the project at least twice.
-- Record self-reported minutes from opening the project to taking the first useful action.
-- Compare with each participant's usual restart process.
-- Check how often cards are saved without a reminder.
-- Ask whether a three-field card feels useful or burdensome.
-
-Continue only if at least four participants voluntarily use it again and describe a concrete restart it made easier. Treat the small study as directional evidence, not proof of demand.
+Pilot with 20–30 venues in one neighborhood for four weeks. Compare displayed estimates with on-site observations at several times of day. Track how many venues receive fresh reports, whether estimates are directionally useful, and how often users check before leaving. Expand only if reports stay fresh without paid incentives.
 
 ## Biggest risk
-People may forget to write the card when stopping, leaving nothing useful to resume from. Make saving possible in under 30 seconds, preserve unfinished drafts, and let users save just the next action when rushed.
+The app is useful only when reports are recent, but people may stop submitting them after their own visit. Make reporting take one tap, show the report’s age prominently, and hide stale estimates instead of presenting false precision.
 
 ## Possible business model
-A free version for a few active projects and a one-time upgrade for unlimited projects, custom prompts, and richer exports. Validate repeat use before building paid features.
+Keep community reporting free. Offer businesses an optional subscription for a verified profile, opening-hours updates, and a simple dashboard showing busy periods. Never let paid listings alter community wait estimates.
