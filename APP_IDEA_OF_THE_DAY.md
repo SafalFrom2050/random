@@ -1,43 +1,54 @@
-# App Idea of the Day: Where Was It?
-Date: 2026-10-20 (Japan)
+# App Idea of the Day: Resume Point
+Date: 2026-10-21 (Japan)
 
-## The pitch
-A visual memory app for the things you store and then forget: spare cables, winter clothes, documents, tools, and rarely used kitchen items.
+## Concept
+A tiny app that helps you restart interrupted projects. Before stopping, save a quick “resume card” containing what you just did, the exact next action, and the links or files you will need.
 
-## Who it helps
-People living in small apartments, sharing storage, or moving frequently.
+## Target users
+Hobby developers, students, writers, and makers who switch between several projects and return after days or weeks away.
 
-## The problem
-You know you own an item, but finding it means opening every drawer and box. Elaborate inventory apps take too much effort to maintain.
+## Problem
+Task lists say what needs doing but rarely preserve enough context to begin immediately. Returning to a project turns into rereading notes, reopening tabs, and remembering why you stopped.
 
-## The core experience
-1. Photograph an open drawer, shelf, or box.
-2. Give it a location such as “Bedroom → Closet → Blue box.”
-3. Add a few searchable item labels.
-4. Search “HDMI adapter” weeks later and see its location and original photo.
-5. Tap “Moved” to update an item's location quickly.
+## Core workflow
+1. Create a project such as “Weekend game.”
+2. Tap “Pause” and answer three prompts: “Where did you stop?”, “What is the next physical action?”, and “What might trip you up?”
+3. Attach a link, screenshot, or short code snippet.
+4. When returning, open a single resume card rather than the full project history.
+5. Tap “Started” and optionally record whether the card helped. Replace the card at the next pause.
 
-## Smallest useful MVP
-- Locations with optional parent locations.
-- Photos with manually entered item labels.
-- Search across item names, notes, and locations.
-- A “recently moved” list for correcting mistakes.
-- Local storage and a JSON export/import backup.
+Example card:
+- Stopped: The player moves, but collisions fail on the left wall.
+- Next action: Open player.dart and reproduce the issue in level 2.
+- Watch out: The test map uses a different tile size.
+- Context: Repository link and a screenshot of the collision bounds.
 
-## A delightful detail
-Print a QR label for a box. Scanning it opens the contents photo, so you can check inside without unpacking it.
+## MVP features
+- Project list with one current resume card per project.
+- Three short text fields plus links and one optional image.
+- Automatic save and a last-updated timestamp.
+- Share-sheet capture for adding a URL to a project.
+- Search, project archiving, and Markdown export/import.
+- Optional user-scheduled reminder to reopen a project.
 
-## What makes it interesting
-Capture a whole storage space in one photo rather than entering every object separately. Keep the ordinary workflow fast enough to use while tidying.
+Keep collaboration, AI summaries, time tracking, and full task management outside the initial scope.
 
 ## Build approach
-Flutter with SQLite and local image files. Start offline with manual labels; explore on-device image labeling only after the basic workflow proves useful.
+Build a Flutter mobile app with SQLite for projects and cards, app-private image storage, and native share-sheet integration. Store everything locally and require no account. Use a simple Markdown export with bundled image files for backups. Treat shared URLs as references; the app does not need to fetch or summarize their contents.
 
-## First validation
-Ask five people to record three storage locations. A week later, ask them to find two stored items. Measure lookup time, successful finds, and whether they updated moved items.
+The central data model is Project → CurrentResumeCard, with a small attachment list. Editing a card replaces its content; undo can protect against accidental edits without introducing a complex history interface.
+
+## Validation plan
+Recruit six people with at least two unfinished projects. For one week, ask them to save a card before pausing and return to the project at least twice.
+- Record self-reported minutes from opening the project to taking the first useful action.
+- Compare with each participant's usual restart process.
+- Check how often cards are saved without a reminder.
+- Ask whether a three-field card feels useful or burdensome.
+
+Continue only if at least four participants voluntarily use it again and describe a concrete restart it made easier. Treat the small study as directional evidence, not proof of demand.
 
 ## Biggest risk
-An outdated location is worse than no location. Make moving an item a two-tap action, and show when each location was last checked.
+People may forget to write the card when stopping, leaving nothing useful to resume from. Make saving possible in under 30 seconds, preserve unfinished drafts, and let users save just the next action when rushed.
 
 ## Possible business model
-Free basic inventory, with a one-time upgrade for QR label sheets, multiple homes, and richer export options.
+A free version for a few active projects and a one-time upgrade for unlimited projects, custom prompts, and richer exports. Validate repeat use before building paid features.
