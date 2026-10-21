@@ -1,37 +1,53 @@
-# App Idea of the Day: Queue Whisper
-Date: 2026-10-21 (Japan)
+# App Idea of the Day: Sound Postcard
+Date: 2026-10-22 (Japan)
 
 ## Concept
-A lightweight, community-powered app that shows how long the line is at nearby everyday places—clinics, city offices, bakeries, laundromats, and popular lunch spots—so people can choose when to go.
+An audio diary for collecting the sounds of ordinary places: rain on a balcony, a festival street, a train arriving, or a quiet kitchen. Each postcard pairs a short recording with one photo and a sentence about the moment.
 
 ## Target users
-People fitting errands into a lunch break, caregivers coordinating appointments, and anyone who would rather avoid an unnecessary wait.
+Travelers, people living away from home, and anyone who enjoys keeping small personal memories without writing a journal.
 
 ## Problem
-Maps can tell you where a place is, but rarely whether the service counter is backed up right now. Calling is inconvenient, and many businesses do not publish live wait estimates.
+Photos preserve how a moment looked but often lose its atmosphere. Voice memo apps capture sound, yet recordings become a list of anonymous files that people rarely revisit.
 
 ## Core workflow
-1. Search a place or browse nearby locations.
-2. See the latest wait estimate, when it was reported, and how many people contributed.
-3. After visiting, tap one of three buttons: “No wait,” “Under 15 min,” or “15+ min.”
-4. Optionally confirm whether the estimate was close when you leave.
-5. Get a gentle notification when a followed place is usually quieter.
+1. Tap “Capture” and record up to 30 seconds of ambient sound.
+2. Add an optional photo, title, and one-line memory.
+3. Choose a broad place label such as “Kathmandu rooftop”; exact coordinates are unnecessary.
+4. Browse postcards by month or a personal collection.
+5. Open a postcard to hear the moment while viewing its photo.
+6. Export selected postcards as a portable collection.
+
+Example: A photo of a paper kite, the sound of wind and distant celebrations, and the caption “The afternoon we finally got it flying.”
 
 ## MVP features
-- Place search and categories for common errands.
-- One-tap wait reports with automatic timestamp and coarse location.
-- Confidence labels that fade as reports get older.
-- “Quiet hours” based on recent reports, clearly marked as a pattern rather than a live guarantee.
-- Report moderation, duplicate-place merging, and a way for businesses to claim and correct their listing.
+- Short audio recording with visible duration and playback preview.
+- One optional photo and caption per postcard.
+- Collections, text search, and a chronological gallery.
+- A “revisit a random memory” button.
+- Local storage, deletion, and ZIP export/import containing audio, images, and a JSON manifest.
+- Clear handling of interrupted recordings and low storage.
+
+Start with personal collections. Public feeds, automatic transcription, cloud sync, and social messaging can wait.
 
 ## Build approach
-Start with one city and a small set of high-traffic venues. Use a map/search provider for place discovery, a simple backend for timestamped reports, and an aggregation rule that weights recent reports more heavily. Do not track users continuously; ask for location only while searching or submitting a report. Let users report without creating an account, with rate limits to reduce spam.
+Build a Flutter app using native audio recording APIs and SQLite for metadata. Store compressed audio and photos in app-private files. Use generated identifiers for filenames and export relative paths in a versioned manifest.
+
+Request microphone access when the user starts recording and photo access only when attaching an image. Keep recording in the foreground for the MVP. Save each completed recording before opening the caption editor so an interrupted edit does not lose the sound.
 
 ## Validation plan
-Pilot with 20–30 venues in one neighborhood for four weeks. Compare displayed estimates with on-site observations at several times of day. Track how many venues receive fresh reports, whether estimates are directionally useful, and how often users check before leaving. Expand only if reports stay fresh without paid incentives.
+Recruit eight people for a two-week pilot, including travelers and people living abroad.
+- Ask each person to capture at least three moments, then leave subsequent use voluntary.
+- Measure capture completion, voluntary additional postcards, and playback of older postcards.
+- Ask participants to compare one sound postcard with a photo of the same moment.
+- Test export and restore on a second device.
+
+A useful early signal would be at least five participants creating another postcard voluntarily and describing a memory that audio helped them revisit. This is a small exploratory study, not proof of a market.
 
 ## Biggest risk
-The app is useful only when reports are recent, but people may stop submitting them after their own visit. Make reporting take one tap, show the report’s age prominently, and hide stale estimates instead of presenting false precision.
+The novelty may wear off, leaving recordings nobody replays. Make playback immediate, keep capture short, and test whether the random-memory feature brings people back. If people enjoy recording but never revisiting, reconsider the diary premise before adding features.
+
+Recordings may also capture private conversations. Keep collections private by default, offer easy trimming and deletion, and let users review every recording before exporting it.
 
 ## Possible business model
-Keep community reporting free. Offer businesses an optional subscription for a verified profile, opening-hours updates, and a simple dashboard showing busy periods. Never let paid listings alter community wait estimates.
+A free personal diary with a one-time upgrade for custom collection covers and richer export presentation. Keep basic backup export available to everyone. Consider paid cloud backup only after repeat use and storage costs are understood.
