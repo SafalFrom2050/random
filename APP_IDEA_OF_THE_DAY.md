@@ -1,53 +1,50 @@
-# App Idea of the Day: Sound Postcard
+# App Idea of the Day: Fridge Friday
 Date: 2026-10-22 (Japan)
 
 ## Concept
-An audio diary for collecting the sounds of ordinary places: rain on a balcony, a festival street, a train arriving, or a quiet kitchen. Each postcard pairs a short recording with one photo and a sentence about the moment.
+A lightweight food-planning app that turns the groceries you already have into a few realistic meal suggestions before they expire.
 
 ## Target users
-Travelers, people living away from home, and anyone who enjoys keeping small personal memories without writing a journal.
+People who live alone, buy groceries without a plan, and want to waste less food without following a strict meal-prep routine.
 
 ## Problem
-Photos preserve how a moment looked but often lose its atmosphere. Voice memo apps capture sound, yet recordings become a list of anonymous files that people rarely revisit.
+Recipes usually start with a shopping list. In real kitchens, the problem is often the opposite: a half-used cabbage, tofu nearing its date, and no clear idea what can be made quickly.
 
 ## Core workflow
-1. Tap “Capture” and record up to 30 seconds of ambient sound.
-2. Add an optional photo, title, and one-line memory.
-3. Choose a broad place label such as “Kathmandu rooftop”; exact coordinates are unnecessary.
-4. Browse postcards by month or a personal collection.
-5. Open a postcard to hear the moment while viewing its photo.
-6. Export selected postcards as a portable collection.
+1. Add groceries by typing, scanning a receipt, or snapping a shelf photo.
+2. Set an optional “use by” date and note how much is left.
+3. Get three simple meal ideas ranked by soonest-to-expire ingredients, prep time, and dietary preferences.
+4. Mark ingredients as used, partially used, or still available.
+5. Build a short shopping list from gaps in a selected meal.
 
-Example: A photo of a paper kite, the sound of wind and distant celebrations, and the caption “The afternoon we finally got it flying.”
+Example: With tofu, cabbage, eggs, and rice on hand, the app suggests quick tofu-and-cabbage stir-fry, an egg rice bowl, and a simple miso soup.
 
 ## MVP features
-- Short audio recording with visible duration and playback preview.
-- One optional photo and caption per postcard.
-- Collections, text search, and a chronological gallery.
-- A “revisit a random memory” button.
-- Local storage, deletion, and ZIP export/import containing audio, images, and a JSON manifest.
-- Clear handling of interrupted recordings and low storage.
+- Fast manual ingredient entry with common Japanese supermarket items.
+- Expiry reminders that users can snooze or dismiss.
+- A small recipe set with adjustable portions and clear substitutions.
+- Meal suggestions filtered by prep time and dietary preferences.
+- “Used it” updates that reduce or remove ingredient quantities.
+- Local-first pantry data with backup and export.
 
-Start with personal collections. Public feeds, automatic transcription, cloud sync, and social messaging can wait.
+Start with manual entry and a curated recipe collection. Receipt OCR, barcode lookup, shared households, and AI-generated recipes can wait.
 
 ## Build approach
-Build a Flutter app using native audio recording APIs and SQLite for metadata. Store compressed audio and photos in app-private files. Use generated identifiers for filenames and export relative paths in a versioned manifest.
+Build a Flutter app with a local SQLite pantry and recipe database. Store ingredient names, quantities, purchase dates, and optional expiry dates. Use deterministic matching to rank recipes by expiring ingredients and missing items; this makes suggestions predictable and works offline.
 
-Request microphone access when the user starts recording and photo access only when attaching an image. Keep recording in the foreground for the MVP. Save each completed recording before opening the caption editor so an interrupted edit does not lose the sound.
+Keep reminders opt-in and schedule them only for ingredients with a date the user entered or confirmed. Never assume a product's expiry date from a receipt.
 
 ## Validation plan
-Recruit eight people for a two-week pilot, including travelers and people living abroad.
-- Ask each person to capture at least three moments, then leave subsequent use voluntary.
-- Measure capture completion, voluntary additional postcards, and playback of older postcards.
-- Ask participants to compare one sound postcard with a photo of the same moment.
-- Test export and restore on a second device.
+Run a two-week pilot with ten people who cook at home at least twice a week.
+- Have participants enter five to ten groceries during setup.
+- Track whether they open a suggestion, cook it, and mark ingredients as used.
+- Ask what made entry feel annoying and whether reminders arrived at useful times.
+- Compare food participants report throwing away during the pilot with a typical prior two-week period.
 
-A useful early signal would be at least five participants creating another postcard voluntarily and describing a memory that audio helped them revisit. This is a small exploratory study, not proof of a market.
+A promising signal would be six participants cooking at least two suggested meals and reporting that pantry entry took under two minutes per shopping trip. Treat the results as directional, not proof of reduced food waste.
 
 ## Biggest risk
-The novelty may wear off, leaving recordings nobody replays. Make playback immediate, keep capture short, and test whether the random-memory feature brings people back. If people enjoy recording but never revisiting, reconsider the diary premise before adding features.
-
-Recordings may also capture private conversations. Keep collections private by default, offer easy trimming and deletion, and let users review every recording before exporting it.
+Maintaining an accurate pantry can feel like extra work, so users may stop updating it. Make partial updates easy, let suggestions tolerate missing or uncertain quantities, and test whether quick capture is enough before adding more automation.
 
 ## Possible business model
-A free personal diary with a one-time upgrade for custom collection covers and richer export presentation. Keep basic backup export available to everyone. Consider paid cloud backup only after repeat use and storage costs are understood.
+Offer the pantry, expiry reminders, and core recipe suggestions for free. A modest subscription could add household sharing, custom recipe collections, and cross-device backup after users show they return to the app.
