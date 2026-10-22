@@ -1,50 +1,54 @@
-# App Idea of the Day: Fridge Friday
-Date: 2026-10-22 (Japan)
+# App Idea of the Day: Tabletop Takeover
+Date: 2026-10-23 (Japan)
 
 ## Concept
-A lightweight food-planning app that turns the groceries you already have into a few realistic meal suggestions before they expire.
+A phone-based party game that turns objects already on a table into a playful auction. Players bid imaginary coins on everyday items, then reveal secret scoring rules that make an ordinary spoon unexpectedly valuable.
 
 ## Target users
-People who live alone, buy groceries without a plan, and want to waste less food without following a strict meal-prep routine.
+Small groups of friends, families, and board-game clubs looking for a quick game with almost no preparation. The first version supports three to six players sharing one phone.
 
 ## Problem
-Recipes usually start with a shopping list. In real kitchens, the problem is often the opposite: a half-used cabbage, tofu nearing its date, and no clear idea what can be made quickly.
+Spontaneous game nights often stall because nobody brought a game, learning rules takes too long, or a phone game leaves everyone staring at separate screens.
 
 ## Core workflow
-1. Add groceries by typing, scanning a receipt, or snapping a shelf photo.
-2. Set an optional “use by” date and note how much is left.
-3. Get three simple meal ideas ranked by soonest-to-expire ingredients, prep time, and dietary preferences.
-4. Mark ingredients as used, partially used, or still available.
-5. Build a short shopping list from gaps in a selected meal.
+1. Place six harmless everyday objects on a table and name them in the app.
+2. Enter player nicknames. Each player starts with 20 imaginary coins.
+3. Pass the phone privately so each player can read a secret objective, such as “Collect items whose names contain the letter A.”
+4. Reveal one item and hold a short spoken auction. The host enters the winner and winning bid.
+5. Continue until every item is awarded, then reveal objectives and calculate scores.
+6. Start a rematch using the same objects and new objectives.
 
-Example: With tofu, cabbage, eggs, and rice on hand, the app suggests quick tofu-and-cabbage stir-fry, an egg rice bowl, and a simple miso soup.
+Example: A pencil might earn base points, a bonus for being longer than a hand, and another bonus for completing a writing-tool collection.
 
 ## MVP features
-- Fast manual ingredient entry with common Japanese supermarket items.
-- Expiry reminders that users can snooze or dismiss.
-- A small recipe set with adjustable portions and clear substitutions.
-- Meal suggestions filtered by prep time and dietary preferences.
-- “Used it” updates that reduce or remove ingredient quantities.
-- Local-first pantry data with backup and export.
+- A guided setup for three to six players and six to ten objects.
+- Manual item entry with simple host-confirmed tags such as “metal,” “soft,” and “used for writing.”
+- Private objective screens with a handoff cover to reduce accidental reveals.
+- A visible coin ledger that prevents bids above a player's remaining balance.
+- Winner entry, undo, round progress, and a final score breakdown.
+- A curated set of compatible objectives and a short practice round.
 
-Start with manual entry and a curated recipe collection. Receipt OCR, barcode lookup, shared households, and AI-generated recipes can wait.
+Use imaginary currency only. Keep online multiplayer, image recognition, user-created rule packs, and real purchases outside the first version.
 
 ## Build approach
-Build a Flutter app with a local SQLite pantry and recipe database. Store ingredient names, quantities, purchase dates, and optional expiry dates. Use deterministic matching to rank recipes by expiring ingredients and missing items; this makes suggestions predictable and works offline.
+Build a Flutter app with a local game-state model and bundled objective definitions. Save after every auction so an interrupted session can resume.
 
-Keep reminders opt-in and schedule them only for ingredients with a date the user entered or confirmed. Never assume a product's expiry date from a receipt.
+Represent objects with host-confirmed tags. Each objective is a deterministic scoring function over those tags and a player's won items. During setup, select only objectives that are achievable with the entered objects; show a warning if there are too few eligible objectives.
+
+Use a fixed auction rule: bids increase by at least one coin, the last unchallenged bidder wins, and a no-bid item is discarded. Keep objective scoring and remaining-coin bonuses visible in the rules before play. Pilot the numbers for balance rather than assuming the initial values are fair.
 
 ## Validation plan
-Run a two-week pilot with ten people who cook at home at least twice a week.
-- Have participants enter five to ten groceries during setup.
-- Track whether they open a suggestion, cook it, and mark ingredients as used.
-- Ask what made entry feel annoying and whether reminders arrived at useful times.
-- Compare food participants report throwing away during the pilot with a typical prior two-week period.
+Observe five groups playing two rounds each with objects they choose.
+- Measure time from opening the app to the first bid.
+- Record rule questions, scoring disputes, and host entry mistakes.
+- Ask whether players voluntarily want a rematch.
+- Check whether losing players still felt they had meaningful choices.
+- Try a deliberately awkward object set to test objective eligibility.
 
-A promising signal would be six participants cooking at least two suggested meals and reporting that pantry entry took under two minutes per shopping trip. Treat the results as directional, not proof of reduced food waste.
+Proceed if at least four groups finish without facilitator intervention and three choose a rematch. Revise confusing objectives before adding more content.
 
 ## Biggest risk
-Maintaining an accurate pantry can feel like extra work, so users may stop updating it. Make partial updates easy, let suggestions tolerate missing or uncertain quantities, and test whether quick capture is enough before adding more automation.
+Secret objectives may be uneven or impossible for a particular set of objects, making the result feel arbitrary. Validate eligibility before dealing objectives, start with simple tag-based rules, and test scoring balance across many object sets. Let the host correct tags before the first auction.
 
 ## Possible business model
-Offer the pantry, expiry reminders, and core recipe suggestions for free. A modest subscription could add household sharing, custom recipe collections, and cross-device backup after users show they return to the app.
+Offer the core game free, then sell optional themed objective packs as one-time purchases. Keep all players in a shared session covered by the host's copy. Test repeat play before producing paid packs.
