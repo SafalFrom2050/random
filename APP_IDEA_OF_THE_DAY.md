@@ -1,53 +1,46 @@
-# App Idea of the Day: Fit Through
+# App Idea of the Day: Soundprint
 Date: 2026-10-24 (Japan)
 
 ## Concept
-A furniture-shopping companion that keeps the measurements of your home’s narrow spots and checks a product against them before you buy. It highlights which doorway, lift, or stair landing needs a closer look.
+A personal sound map that helps people find quiet places to work, study, read, or take a break, using short, anonymous noise-level check-ins from visitors.
 
 ## Target users
-Apartment renters, people moving home, and anyone shopping for bulky furniture without a professional delivery survey.
+Students, remote workers, people who get distracted by noise, and anyone looking for a calm place while out.
 
 ## Problem
-A sofa can fit in a room but be difficult to get there. Measurements are scattered across notes and photos, while product listings may distinguish poorly between assembled and packaged dimensions.
+A café or public space can look suitable online but be too loud when you arrive. Reviews rarely describe noise consistently, and conditions change by time of day.
 
 ## Core workflow
-1. Create a delivery route: building entrance, lift, hallway, apartment door, and final room.
-2. Enter clear opening measurements manually and attach photos with notes about handles, steps, and turns.
-3. Add a product’s packaged dimensions, assembled dimensions, and whether legs or panels can be removed.
-4. See a checkpoint-by-checkpoint comparison showing clearances and missing measurements.
-5. Export a concise measurement sheet to discuss with the seller or delivery team.
-
-Example: A boxed desk has adequate clearance at the apartment door, but the lift depth is unknown. The app marks the lift as “needs measurement” and makes no overall delivery claim.
+1. Search a neighborhood map for places tagged for studying, working, or taking a quiet break.
+2. See recent crowd-sourced sound levels by time window, plus a confidence indicator based on the number and age of check-ins.
+3. Submit a quick check-in using a simple scale: quiet, conversational, busy, or loud.
+4. Add practical context such as “music,” “construction,” or “many calls,” without recording audio.
+5. Save places and compare their usual noise patterns across weekdays and weekends.
 
 ## MVP features
-- Saved home profiles with an ordered list of delivery checkpoints.
-- Manual dimensions with units, measurement dates, and photos.
-- Separate product records for packaging and assembled size.
-- A conservative rectangular-opening comparison with user-selected orientation.
-- A user-set clearance margin and explicit “unknown” results for incomplete inputs.
-- PDF measurement-sheet export and local backup.
-
-Start with straight openings and static measurements. Camera measurement, augmented reality, automatic stair-turn simulation, retailer scraping, and delivery booking stay outside the MVP.
+- A curated set of public venues with basic categories and opening hours.
+- One-tap sound-level reports that expire after a short period.
+- Time-of-day summaries that appear only when enough recent reports exist.
+- Filters for quiet study, conversation-friendly, and low-stimulation breaks.
+- Report moderation, venue corrections, and a way to flag misleading entries.
 
 ## Build approach
-Build a Flutter app with SQLite for home profiles, checkpoints, and products, plus local storage for photos. Normalize calculations to millimeters while preserving the user’s display units.
+Start with a responsive web app and a small backend for venues, reports, and aggregation. Use a map provider for discovery, but keep the sound rating and time summaries in the app’s own data model.
 
-For a straight opening, compare the two cross-section dimensions of the selected product orientation against the clear opening and chosen margin. Show the calculation and each clearance instead of a single green “fits” badge.
-
-Treat corners, stairs, route length, weight, and lifting access as separate unresolved constraints. A successful opening comparison must never become an overall delivery guarantee. Generate the export from the same stored measurements so screen and document agree.
+Do not record or upload microphone audio. Make participation optional and anonymous, rate-limit reports, and show sample size and freshness beside every result. Avoid turning crowd reports into a promise that a venue will be quiet.
 
 ## Validation plan
-Recruit eight people who recently moved or are shopping for furniture.
-- Ask them to record a route and evaluate two products using supplied dimensions.
-- Observe unit mistakes, confusion about packaging, and time required for setup.
-- Have a delivery professional review anonymized sample sheets for missing practical details.
-- Test known straight-opening examples and confirm that incomplete or turning routes remain unresolved.
-- Ask whether participants would send the sheet to a seller before purchasing.
+Pilot in one compact neighborhood with a mix of cafés, libraries, and coworking spaces.
+- Recruit 30 testers and ask them to check in at places they already visit.
+- Compare reported levels with a brief in-person observation at several time windows.
+- Measure how often users find a suitable place without visiting multiple locations.
+- Test whether people understand the confidence and freshness indicators.
+- Ask venue staff whether correction and removal requests are easy to handle.
 
-Proceed if six participants complete a comparison without help and the professional finds the sheet useful for follow-up questions. Evaluate usefulness first; do not claim the app predicts successful deliveries.
+Continue if users make repeat searches and the reported patterns are useful despite sparse early coverage. If participation is too low, narrow the launch to a few community-supported venues rather than displaying unreliable citywide rankings.
 
 ## Biggest risk
-A reassuring result could create false confidence because real delivery depends on rotation space, protrusions, packaging, weight, and handling constraints. Limit the MVP to transparent dimension checks, distinguish measured facts from assumptions, and flag every unmodeled checkpoint prominently.
+Sparse or biased reports could make the map misleading, and venue ratings may unfairly affect businesses. Keep reports time-limited, expose uncertainty, allow corrections, and avoid permanent star ratings or public venue leaderboards.
 
 ## Possible business model
-A free home profile with a few saved products, followed by a one-time upgrade for multiple homes and unlimited product comparisons. Keep measurement export available in the free version so users can verify details with a delivery team.
+Offer the discovery map free. Sell optional, aggregated time-pattern insights to participating venues, with minimum sample thresholds and no individual user tracking. Keep user check-ins and personal saved places private.
