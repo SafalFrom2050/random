@@ -1,44 +1,53 @@
-# App Idea of the Day: Tiny Tidy
-Date: 2026-10-23 (Japan)
+# App Idea of the Day: Fit Through
+Date: 2026-10-24 (Japan)
 
 ## Concept
-A small home-reset app that turns a messy room into a few doable five-minute tasks. Choose a room and how much energy you have; the app suggests one task at a time, such as clearing a chair or gathering cups.
+A furniture-shopping companion that keeps the measurements of your home’s narrow spots and checks a product against them before you buy. It highlights which doorway, lift, or stair landing needs a closer look.
 
 ## Target users
-People who feel overwhelmed by household clutter, live in small homes, or have only short breaks for tidying.
+Apartment renters, people moving home, and anyone shopping for bulky furniture without a professional delivery survey.
 
 ## Problem
-A large, vague chore like “clean the room” is easy to postpone. Many productivity apps add planning overhead instead of helping someone start.
+A sofa can fit in a room but be difficult to get there. Measurements are scattered across notes and photos, while product listings may distinguish poorly between assembled and packaged dimensions.
 
 ## Core workflow
-1. Choose a room and an energy level: low, medium, or high.
-2. Pick a time window, from three to fifteen minutes.
-3. Get one concrete task sized for that time, with a one-tap “too much” option that offers a smaller version.
-4. Mark it done or skip it; the app then suggests the next task only if time remains.
-5. See a simple end-of-session recap of what changed, without streaks or guilt messages.
+1. Create a delivery route: building entrance, lift, hallway, apartment door, and final room.
+2. Enter clear opening measurements manually and attach photos with notes about handles, steps, and turns.
+3. Add a product’s packaged dimensions, assembled dimensions, and whether legs or panels can be removed.
+4. See a checkpoint-by-checkpoint comparison showing clearances and missing measurements.
+5. Export a concise measurement sheet to discuss with the seller or delivery team.
 
-Example: “Put five pieces of clothing into the laundry basket” can shrink to “Pick up one item.”
+Example: A boxed desk has adequate clearance at the apartment door, but the lift depth is unknown. The app marks the lift as “needs measurement” and makes no overall delivery claim.
 
 ## MVP features
-- Room list with editable task prompts.
-- Energy and time selection.
-- A task-size ladder for each prompt, from tiny to fuller version.
-- Optional timer with pause and quiet vibration.
-- Local-only completion history and a short recap.
-- A “not today” button that ends the session kindly.
+- Saved home profiles with an ordered list of delivery checkpoints.
+- Manual dimensions with units, measurement dates, and photos.
+- Separate product records for packaging and assembled size.
+- A conservative rectangular-opening comparison with user-selected orientation.
+- A user-set clearance margin and explicit “unknown” results for incomplete inputs.
+- PDF measurement-sheet export and local backup.
+
+Start with straight openings and static measurements. Camera measurement, augmented reality, automatic stair-turn simulation, retailer scraping, and delivery booking stay outside the MVP.
 
 ## Build approach
-Build a lightweight mobile app with bundled task templates and local storage. Keep the first release offline and avoid accounts. Let users edit or remove prompts, and never infer mess from camera or microphone data.
+Build a Flutter app with SQLite for home profiles, checkpoints, and products, plus local storage for photos. Normalize calculations to millimeters while preserving the user’s display units.
+
+For a straight opening, compare the two cross-section dimensions of the selected product orientation against the clear opening and chosen margin. Show the calculation and each clearance instead of a single green “fits” badge.
+
+Treat corners, stairs, route length, weight, and lifting access as separate unresolved constraints. A successful opening comparison must never become an overall delivery guarantee. Generate the export from the same stored measurements so screen and document agree.
 
 ## Validation plan
-Test with ten people over one week.
-- Measure how long it takes to reach the first task.
-- Track how often users choose a smaller task or stop early.
-- Ask whether the prompts feel specific and respectful.
-- Check whether people return because the app helps them begin, not because of streak pressure.
+Recruit eight people who recently moved or are shopping for furniture.
+- Ask them to record a route and evaluate two products using supplied dimensions.
+- Observe unit mistakes, confusion about packaging, and time required for setup.
+- Have a delivery professional review anonymized sample sheets for missing practical details.
+- Test known straight-opening examples and confirm that incomplete or turning routes remain unresolved.
+- Ask whether participants would send the sheet to a seller before purchasing.
+
+Proceed if six participants complete a comparison without help and the professional finds the sheet useful for follow-up questions. Evaluate usefulness first; do not claim the app predicts successful deliveries.
 
 ## Biggest risk
-The suggestions may feel generic or patronizing. Keep language neutral, let users customize every task, and make stopping a normal outcome rather than a failure.
+A reassuring result could create false confidence because real delivery depends on rotation space, protrusions, packaging, weight, and handling constraints. Limit the MVP to transparent dimension checks, distinguish measured facts from assumptions, and flag every unmodeled checkpoint prominently.
 
 ## Possible business model
-Keep core planning and task customization free. Consider a one-time paid pack of additional room templates and accessibility options only if users request more variety.
+A free home profile with a few saved products, followed by a one-time upgrade for multiple homes and unlimited product comparisons. Keep measurement export available in the free version so users can verify details with a delivery team.
