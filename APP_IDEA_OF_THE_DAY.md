@@ -1,54 +1,44 @@
-# App Idea of the Day: Tabletop Takeover
+# App Idea of the Day: Tiny Tidy
 Date: 2026-10-23 (Japan)
 
 ## Concept
-A phone-based party game that turns objects already on a table into a playful auction. Players bid imaginary coins on everyday items, then reveal secret scoring rules that make an ordinary spoon unexpectedly valuable.
+A small home-reset app that turns a messy room into a few doable five-minute tasks. Choose a room and how much energy you have; the app suggests one task at a time, such as clearing a chair or gathering cups.
 
 ## Target users
-Small groups of friends, families, and board-game clubs looking for a quick game with almost no preparation. The first version supports three to six players sharing one phone.
+People who feel overwhelmed by household clutter, live in small homes, or have only short breaks for tidying.
 
 ## Problem
-Spontaneous game nights often stall because nobody brought a game, learning rules takes too long, or a phone game leaves everyone staring at separate screens.
+A large, vague chore like “clean the room” is easy to postpone. Many productivity apps add planning overhead instead of helping someone start.
 
 ## Core workflow
-1. Place six harmless everyday objects on a table and name them in the app.
-2. Enter player nicknames. Each player starts with 20 imaginary coins.
-3. Pass the phone privately so each player can read a secret objective, such as “Collect items whose names contain the letter A.”
-4. Reveal one item and hold a short spoken auction. The host enters the winner and winning bid.
-5. Continue until every item is awarded, then reveal objectives and calculate scores.
-6. Start a rematch using the same objects and new objectives.
+1. Choose a room and an energy level: low, medium, or high.
+2. Pick a time window, from three to fifteen minutes.
+3. Get one concrete task sized for that time, with a one-tap “too much” option that offers a smaller version.
+4. Mark it done or skip it; the app then suggests the next task only if time remains.
+5. See a simple end-of-session recap of what changed, without streaks or guilt messages.
 
-Example: A pencil might earn base points, a bonus for being longer than a hand, and another bonus for completing a writing-tool collection.
+Example: “Put five pieces of clothing into the laundry basket” can shrink to “Pick up one item.”
 
 ## MVP features
-- A guided setup for three to six players and six to ten objects.
-- Manual item entry with simple host-confirmed tags such as “metal,” “soft,” and “used for writing.”
-- Private objective screens with a handoff cover to reduce accidental reveals.
-- A visible coin ledger that prevents bids above a player's remaining balance.
-- Winner entry, undo, round progress, and a final score breakdown.
-- A curated set of compatible objectives and a short practice round.
-
-Use imaginary currency only. Keep online multiplayer, image recognition, user-created rule packs, and real purchases outside the first version.
+- Room list with editable task prompts.
+- Energy and time selection.
+- A task-size ladder for each prompt, from tiny to fuller version.
+- Optional timer with pause and quiet vibration.
+- Local-only completion history and a short recap.
+- A “not today” button that ends the session kindly.
 
 ## Build approach
-Build a Flutter app with a local game-state model and bundled objective definitions. Save after every auction so an interrupted session can resume.
-
-Represent objects with host-confirmed tags. Each objective is a deterministic scoring function over those tags and a player's won items. During setup, select only objectives that are achievable with the entered objects; show a warning if there are too few eligible objectives.
-
-Use a fixed auction rule: bids increase by at least one coin, the last unchallenged bidder wins, and a no-bid item is discarded. Keep objective scoring and remaining-coin bonuses visible in the rules before play. Pilot the numbers for balance rather than assuming the initial values are fair.
+Build a lightweight mobile app with bundled task templates and local storage. Keep the first release offline and avoid accounts. Let users edit or remove prompts, and never infer mess from camera or microphone data.
 
 ## Validation plan
-Observe five groups playing two rounds each with objects they choose.
-- Measure time from opening the app to the first bid.
-- Record rule questions, scoring disputes, and host entry mistakes.
-- Ask whether players voluntarily want a rematch.
-- Check whether losing players still felt they had meaningful choices.
-- Try a deliberately awkward object set to test objective eligibility.
-
-Proceed if at least four groups finish without facilitator intervention and three choose a rematch. Revise confusing objectives before adding more content.
+Test with ten people over one week.
+- Measure how long it takes to reach the first task.
+- Track how often users choose a smaller task or stop early.
+- Ask whether the prompts feel specific and respectful.
+- Check whether people return because the app helps them begin, not because of streak pressure.
 
 ## Biggest risk
-Secret objectives may be uneven or impossible for a particular set of objects, making the result feel arbitrary. Validate eligibility before dealing objectives, start with simple tag-based rules, and test scoring balance across many object sets. Let the host correct tags before the first auction.
+The suggestions may feel generic or patronizing. Keep language neutral, let users customize every task, and make stopping a normal outcome rather than a failure.
 
 ## Possible business model
-Offer the core game free, then sell optional themed objective packs as one-time purchases. Keep all players in a shared session covered by the host's copy. Test repeat play before producing paid packs.
+Keep core planning and task customization free. Consider a one-time paid pack of additional room templates and accessibility options only if users request more variety.
