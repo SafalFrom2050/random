@@ -1,46 +1,52 @@
-# App Idea of the Day: Soundprint
-Date: 2026-10-24 (Japan)
+# App Idea of the Day: Stitch Ledger
+Date: 2026-10-25 (Japan)
 
 ## Concept
-A personal sound map that helps people find quiet places to work, study, read, or take a break, using short, anonymous noise-level check-ins from visitors.
+A knitting and crochet companion that remembers exactly where you stopped in a pattern, including row counts, repeats, yarn changes, and personal corrections.
 
 ## Target users
-Students, remote workers, people who get distracted by noise, and anyone looking for a calm place while out.
+Hobby knitters and crocheters who juggle multiple projects or follow patterns with repeated sections.
 
 ## Problem
-A café or public space can look suitable online but be too loud when you arrive. Reviews rarely describe noise consistently, and conditions change by time of day.
+A basic row counter records a number but loses its meaning. After a break, makers must reconstruct which repeat they were on, whether a shaping step happened, and what they changed from the pattern.
 
 ## Core workflow
-1. Search a neighborhood map for places tagged for studying, working, or taking a quiet break.
-2. See recent crowd-sourced sound levels by time window, plus a confidence indicator based on the number and age of check-ins.
-3. Submit a quick check-in using a simple scale: quiet, conversational, busy, or loud.
-4. Add practical context such as “music,” “construction,” or “many calls,” without recording audio.
-5. Save places and compare their usual noise patterns across weekdays and weekends.
+1. Create a project and enter a small sequence of pattern steps manually.
+2. Define repeats, such as “Work these four rows six times.”
+3. Tap a large counter after completing a row; show both the current row and repeat.
+4. Attach a note or photo to the current step when making a modification.
+5. Pause the project and return to a clear “next row” card.
+6. Undo an accidental tap or move back when unpicking work.
+
+Example: “Next: row 3 of 4, repeat 5 of 6. Your note: use the larger hook for this section.”
 
 ## MVP features
-- A curated set of public venues with basic categories and opening hours.
-- One-tap sound-level reports that expire after a short period.
-- Time-of-day summaries that appear only when enough recent reports exist.
-- Filters for quiet study, conversation-friendly, and low-stimulation breaks.
-- Report moderation, venue corrections, and a way to flag misleading entries.
+- Multiple projects with independent progress.
+- Manually entered sections and a single level of repeats.
+- Large accessible counter controls, undo, and explicit backtracking.
+- Notes and photos attached to sections.
+- A progress timeline distinguishing completed work from corrections.
+- Local storage and project export/import.
+
+Keep pattern marketplaces, PDF interpretation, nested repeat logic, and automatic stitch recognition outside the first release.
 
 ## Build approach
-Start with a responsive web app and a small backend for venues, reports, and aggregation. Use a map provider for discovery, but keep the sound rating and time summaries in the app’s own data model.
+Build a Flutter app with SQLite and local image storage. Represent a pattern as ordered sections, each containing a row count and repeat count. Store progress changes as events so undo restores the previous position reliably.
 
-Do not record or upload microphone audio. Make participation optional and anonymous, rate-limit reports, and show sample size and freshness beside every result. Avoid turning crowd reports into a promise that a venue will be quiet.
+Define the displayed position as the next row to work. Advancing from the final row should show a completion screen and allow undo. Save each action immediately and restore the same state after an app restart. Export a versioned JSON manifest with optional image attachments.
 
 ## Validation plan
-Pilot in one compact neighborhood with a mix of cafés, libraries, and coworking spaces.
-- Recruit 30 testers and ask them to check in at places they already visit.
-- Compare reported levels with a brief in-person observation at several time windows.
-- Measure how often users find a suitable place without visiting multiple locations.
-- Test whether people understand the confidence and freshness indicators.
-- Ask venue staff whether correction and removal requests are easy to handle.
+Observe six knitters or crocheters using the app on a small repeated pattern, then let them try it on their own projects for a week.
+- Test whether they correctly identify the next row after an interruption.
+- Record accidental advances and successful corrections.
+- Ask whether setup takes less effort than their current notes.
+- Check that backtracking across section boundaries matches real work.
+- Measure voluntary use on a second project.
 
-Continue if users make repeat searches and the reported patterns are useful despite sparse early coverage. If participation is too low, narrow the launch to a few community-supported venues rather than displaying unreliable citywide rankings.
+Proceed if at least four participants choose to keep using it and can resume their work without reconstructing progress. Treat this as an initial usability signal.
 
 ## Biggest risk
-Sparse or biased reports could make the map misleading, and venue ratings may unfairly affect businesses. Keep reports time-limited, expose uncertainty, allow corrections, and avoid permanent star ratings or public venue leaderboards.
+Recording every row may interrupt the craft more than it helps. Make the main control usable with one hand, offer adjustable screen-awake behavior during a session, and let users count whole repeats instead of individual rows. Validate the interaction before adding more pattern logic.
 
 ## Possible business model
-Offer the discovery map free. Sell optional, aggregated time-pattern insights to participating venues, with minimum sample thresholds and no individual user tracking. Keep user check-ins and personal saved places private.
+A free version with two active projects and a one-time upgrade for unlimited projects and custom section templates. Keep basic backup export available to everyone.
