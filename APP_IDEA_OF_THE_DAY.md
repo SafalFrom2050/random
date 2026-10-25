@@ -1,48 +1,54 @@
-# App Idea of the Day: Fixfolio
-Date: 2026-10-25 (Japan)
+# App Idea of the Day: Palette Walk
+Date: 2026-10-26 (Japan)
 
 ## Concept
-A simple home-repair log that helps people remember how an appliance, bike, or piece of furniture was fixed—and what parts or tools worked.
+A creative scavenger-hunt app that challenges you to find a small set of colors in your surroundings and turn your discoveries into a personal photo palette.
 
 ## Target users
-Renters, homeowners, and hands-on people who handle small repairs themselves or coordinate with a repair shop.
+Casual photographers, designers seeking inspiration, and people who want a playful reason to notice their neighborhood.
 
 ## Problem
-Repair details disappear into chat threads, paper receipts, and memory. When the same issue returns, people often repeat troubleshooting or buy the wrong replacement part.
+Creative prompts can be too broad to start, while ordinary photo galleries bury small visual discoveries. A concrete color hunt gives a short outing a purpose and produces something easy to keep or share.
 
 ## Core workflow
-1. Add an item with a name, photo, model number, and optional serial number.
-2. Record a symptom, date, and what was tried.
-3. Mark the outcome: fixed, temporary workaround, or still unresolved.
-4. Attach the part number, receipt, and a short note about what worked.
-5. Set a reminder to recheck a temporary fix or schedule routine maintenance.
-6. Search past repairs by item, symptom, or part number.
+1. Choose a three-color challenge or generate a random palette.
+2. Photograph something matching each color using an in-app camera or import an existing photo.
+3. Tap the part of the photo you want to sample.
+4. See the sampled color beside the target; accept it yourself or try another shot.
+5. Finish with a collage of three photos and their sampled color codes.
+6. Save the collection or export a shareable image.
 
-Example: “Washing machine — drain error. Cleaned the filter; issue resolved. Filter cover opened with a coin. Recheck in one month.”
+Example: A rust-red gate, a cream-colored wall, and a blue bicycle become one neighborhood palette.
 
 ## MVP features
-- Item cards with photos and model details.
-- A dated repair timeline for each item.
-- Searchable notes, parts, costs, and receipts.
-- Optional reminders for follow-up and maintenance.
-- Local-first storage with backup and export.
+- Bundled and randomly generated three-color prompts.
+- Camera capture and system photo-picker import.
+- Tap-to-sample color with a magnified preview.
+- Target and sample comparison using swatches, labels, and color codes.
+- A local gallery of completed and unfinished challenges.
+- Collage image export with optional captions.
 
-Keep repair diagnosis, automatic parts matching, technician booking, and shared household accounts outside the first release.
+Allow users to skip colors or complete a challenge indoors. Keep maps, public feeds, competitive scoring, and AI object recognition outside the first release.
 
 ## Build approach
-Build a Flutter app with SQLite and local attachment storage. Store each repair as a separate event linked to an item, so the timeline remains easy to scan and edit. Make fields optional and support quick voice-to-text notes. Export a versioned JSON file with attachments in a ZIP archive.
+Build a Flutter app with local image storage and SQLite for challenges, target colors, and sample coordinates. Generate palettes from a curated set of combinations so early prompts remain varied and achievable.
+
+Normalize image orientation before sampling. Average a small patch around the chosen point to reduce single-pixel noise, and store the resulting RGB value with the photo. Describe samples as image colors: lighting and camera processing mean they are not calibrated measurements of real objects.
+
+Render exported collages from the same saved challenge data. Use the system share sheet only after the user explicitly chooses export; remove location metadata from generated images.
 
 ## Validation plan
-Ask eight people to log one recent repair, then use Fixfolio for a month.
-- Check whether they can find a past repair or part number in under 30 seconds.
-- Track how often they add a note immediately after a repair.
-- Ask whether recording a repair feels easier than their current method.
-- Verify that export and restore preserve item history and attachments.
+Invite eight people to try one ten-minute challenge and then use the app freely for a week.
+- Observe whether they understand sampling without a tutorial.
+- Check whether target colors feel achievable in different surroundings.
+- Ask whether they enjoyed noticing details they would usually overlook.
+- Track voluntary second challenges and saved or exported collages.
+- Test orientation and sampling on photos from several devices.
 
-Proceed if most participants record at least two repairs and can retrieve a useful detail without help.
+Continue if five participants voluntarily complete another challenge and can explain what they enjoyed. Investigate whether prompts or collage creation drives repeat use before adding more features.
 
 ## Biggest risk
-People may not want to document routine fixes. Keep logging to a few taps, provide a “quick note” path, and test whether the reminders and searchable history are useful enough to bring them back.
+Strict color matching could turn a relaxing activity into a frustrating accuracy test. Let users decide whether a photo fits, show comparisons without pass/fail judgments, and offer replacement colors. The main uncertainty is whether the activity stays interesting after the first few hunts.
 
 ## Possible business model
-Free for a small number of items, with a one-time upgrade for unlimited items and expanded backup history. Keep export available to everyone.
+A free core experience with optional one-time purchases for themed prompt packs and collage styles. Keep sampling, saved collections, and basic image export free.
