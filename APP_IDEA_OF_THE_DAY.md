@@ -1,52 +1,48 @@
-# App Idea of the Day: Stitch Ledger
+# App Idea of the Day: Fixfolio
 Date: 2026-10-25 (Japan)
 
 ## Concept
-A knitting and crochet companion that remembers exactly where you stopped in a pattern, including row counts, repeats, yarn changes, and personal corrections.
+A simple home-repair log that helps people remember how an appliance, bike, or piece of furniture was fixed—and what parts or tools worked.
 
 ## Target users
-Hobby knitters and crocheters who juggle multiple projects or follow patterns with repeated sections.
+Renters, homeowners, and hands-on people who handle small repairs themselves or coordinate with a repair shop.
 
 ## Problem
-A basic row counter records a number but loses its meaning. After a break, makers must reconstruct which repeat they were on, whether a shaping step happened, and what they changed from the pattern.
+Repair details disappear into chat threads, paper receipts, and memory. When the same issue returns, people often repeat troubleshooting or buy the wrong replacement part.
 
 ## Core workflow
-1. Create a project and enter a small sequence of pattern steps manually.
-2. Define repeats, such as “Work these four rows six times.”
-3. Tap a large counter after completing a row; show both the current row and repeat.
-4. Attach a note or photo to the current step when making a modification.
-5. Pause the project and return to a clear “next row” card.
-6. Undo an accidental tap or move back when unpicking work.
+1. Add an item with a name, photo, model number, and optional serial number.
+2. Record a symptom, date, and what was tried.
+3. Mark the outcome: fixed, temporary workaround, or still unresolved.
+4. Attach the part number, receipt, and a short note about what worked.
+5. Set a reminder to recheck a temporary fix or schedule routine maintenance.
+6. Search past repairs by item, symptom, or part number.
 
-Example: “Next: row 3 of 4, repeat 5 of 6. Your note: use the larger hook for this section.”
+Example: “Washing machine — drain error. Cleaned the filter; issue resolved. Filter cover opened with a coin. Recheck in one month.”
 
 ## MVP features
-- Multiple projects with independent progress.
-- Manually entered sections and a single level of repeats.
-- Large accessible counter controls, undo, and explicit backtracking.
-- Notes and photos attached to sections.
-- A progress timeline distinguishing completed work from corrections.
-- Local storage and project export/import.
+- Item cards with photos and model details.
+- A dated repair timeline for each item.
+- Searchable notes, parts, costs, and receipts.
+- Optional reminders for follow-up and maintenance.
+- Local-first storage with backup and export.
 
-Keep pattern marketplaces, PDF interpretation, nested repeat logic, and automatic stitch recognition outside the first release.
+Keep repair diagnosis, automatic parts matching, technician booking, and shared household accounts outside the first release.
 
 ## Build approach
-Build a Flutter app with SQLite and local image storage. Represent a pattern as ordered sections, each containing a row count and repeat count. Store progress changes as events so undo restores the previous position reliably.
-
-Define the displayed position as the next row to work. Advancing from the final row should show a completion screen and allow undo. Save each action immediately and restore the same state after an app restart. Export a versioned JSON manifest with optional image attachments.
+Build a Flutter app with SQLite and local attachment storage. Store each repair as a separate event linked to an item, so the timeline remains easy to scan and edit. Make fields optional and support quick voice-to-text notes. Export a versioned JSON file with attachments in a ZIP archive.
 
 ## Validation plan
-Observe six knitters or crocheters using the app on a small repeated pattern, then let them try it on their own projects for a week.
-- Test whether they correctly identify the next row after an interruption.
-- Record accidental advances and successful corrections.
-- Ask whether setup takes less effort than their current notes.
-- Check that backtracking across section boundaries matches real work.
-- Measure voluntary use on a second project.
+Ask eight people to log one recent repair, then use Fixfolio for a month.
+- Check whether they can find a past repair or part number in under 30 seconds.
+- Track how often they add a note immediately after a repair.
+- Ask whether recording a repair feels easier than their current method.
+- Verify that export and restore preserve item history and attachments.
 
-Proceed if at least four participants choose to keep using it and can resume their work without reconstructing progress. Treat this as an initial usability signal.
+Proceed if most participants record at least two repairs and can retrieve a useful detail without help.
 
 ## Biggest risk
-Recording every row may interrupt the craft more than it helps. Make the main control usable with one hand, offer adjustable screen-awake behavior during a session, and let users count whole repeats instead of individual rows. Validate the interaction before adding more pattern logic.
+People may not want to document routine fixes. Keep logging to a few taps, provide a “quick note” path, and test whether the reminders and searchable history are useful enough to bring them back.
 
 ## Possible business model
-A free version with two active projects and a one-time upgrade for unlimited projects and custom section templates. Keep basic backup export available to everyone.
+Free for a small number of items, with a one-time upgrade for unlimited items and expanded backup history. Keep export available to everyone.
