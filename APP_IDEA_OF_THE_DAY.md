@@ -1,54 +1,53 @@
-# App Idea of the Day: Palette Walk
-Date: 2026-10-26 (Japan)
+# App Idea of the Day: Cue Cards
+Date: 2026-10-27 (Japan)
 
 ## Concept
-A creative scavenger-hunt app that challenges you to find a small set of colors in your surroundings and turn your discoveries into a personal photo palette.
+A rehearsal app for people who need to deliver a short talk without reading a full script. Turn a draft into a handful of cue cards, practice aloud, and gradually hide the prompts as confidence grows.
 
 ## Target users
-Casual photographers, designers seeking inspiration, and people who want a playful reason to notice their neighborhood.
+People preparing workplace introductions, morning speeches, class presentations, wedding toasts, or interview opening statements.
 
 ## Problem
-Creative prompts can be too broad to start, while ordinary photo galleries bury small visual discoveries. A concrete color hunt gives a short outing a purpose and produces something easy to keep or share.
+Memorizing an entire script takes time, while reading it word for word can sound stiff. Ordinary notes do not help a speaker move from full sentences to a few useful reminders.
 
 ## Core workflow
-1. Choose a three-color challenge or generate a random palette.
-2. Photograph something matching each color using an in-app camera or import an existing photo.
-3. Tap the part of the photo you want to sample.
-4. See the sampled color beside the target; accept it yourself or try another shot.
-5. Finish with a collage of three photos and their sampled color codes.
-6. Save the collection or export a shareable image.
+1. Paste a short draft or create cards manually.
+2. Split the talk into three to six sections and write a short cue for each.
+3. Rehearse with full text visible, then switch to cues only.
+4. Advance cards by tapping anywhere on a large control.
+5. Review elapsed time per card and mark where you lost your place.
+6. Repeat with selected cues hidden, revealing them whenever needed.
 
-Example: A rust-red gate, a cream-colored wall, and a blue bicycle become one neighborhood palette.
+Example: A one-minute introduction becomes four cards: background, current work, one achievement, and why this role.
 
 ## MVP features
-- Bundled and randomly generated three-color prompts.
-- Camera capture and system photo-picker import.
-- Tap-to-sample color with a magnified preview.
-- Target and sample comparison using swatches, labels, and color codes.
-- A local gallery of completed and unfinished challenges.
-- Collage image export with optional captions.
+- Manual script entry and section splitting.
+- Separate full-text and cue fields for each card.
+- Full-text, cue-only, and hidden-cue practice modes.
+- Session timing with per-card durations.
+- A “got stuck here” marker and focused retry.
+- Local storage and plain-text export/import.
+- Adjustable text size and presentation contrast.
 
-Allow users to skip colors or complete a challenge indoors. Keep maps, public feeds, competitive scoring, and AI object recognition outside the first release.
+The first release needs no microphone, speech recognition, AI scoring, or account. Timing describes a rehearsal; it does not grade speaking ability.
 
 ## Build approach
-Build a Flutter app with local image storage and SQLite for challenges, target colors, and sample coordinates. Generate palettes from a curated set of combinations so early prompts remain varied and achievable.
+Build a Flutter app using SQLite for talks, ordered cards, and rehearsal summaries. Maintain an explicit session state with current card, mode, elapsed duration, and pause status.
 
-Normalize image orientation before sampling. Average a small patch around the chosen point to reduce single-pixel noise, and store the resulting RGB value with the photo. Describe samples as image colors: lighting and camera processing mean they are not calibrated measurements of real objects.
-
-Render exported collages from the same saved challenge data. Use the system share sheet only after the user explicitly chooses export; remove location metadata from generated images.
+Use a monotonic clock for timing and pause when the app leaves the foreground. Save progress after each card transition. Keep editing separate from rehearsal so accidental touches cannot change the script. Export talks as versioned JSON and a readable text file.
 
 ## Validation plan
-Invite eight people to try one ten-minute challenge and then use the app freely for a week.
-- Observe whether they understand sampling without a tutorial.
-- Check whether target colors feel achievable in different surroundings.
-- Ask whether they enjoyed noticing details they would usually overlook.
-- Track voluntary second challenges and saved or exported collages.
-- Test orientation and sampling on photos from several devices.
+Recruit eight people preparing a real talk under three minutes.
+- Observe their usual rehearsal method before introducing the app.
+- Compare setup effort and ability to finish using cues only.
+- Ask whether revealing a hidden cue helps them recover naturally.
+- Track voluntary repeat sessions over a week.
+- Test large text, interruptions, and accidental taps.
 
-Continue if five participants voluntarily complete another challenge and can explain what they enjoyed. Investigate whether prompts or collage creation drives repeat use before adding more features.
+Continue if at least five participants rehearse again voluntarily and report a specific benefit over ordinary notes. Do not infer better public-speaking performance from faster rehearsals alone.
 
 ## Biggest risk
-Strict color matching could turn a relaxing activity into a frustrating accuracy test. Let users decide whether a photo fits, show comparisons without pass/fail judgments, and offer replacement colors. The main uncertainty is whether the activity stays interesting after the first few hunts.
+Creating cue cards could become extra homework that users abandon. Let people start directly from pasted text, split sections with a simple gesture, and edit cues during review. Validate that setup takes less than two minutes for a one-minute talk before adding automation.
 
 ## Possible business model
-A free core experience with optional one-time purchases for themed prompt packs and collage styles. Keep sampling, saved collections, and basic image export free.
+Free for a few active talks, with a one-time upgrade for unlimited talks and custom practice presets. Keep basic rehearsal and export available to everyone.
