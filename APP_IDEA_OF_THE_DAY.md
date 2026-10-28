@@ -1,54 +1,52 @@
-# App Idea of the Day: Test Garden
-Date: 2026-10-28 (Japan)
+# App Idea of the Day: Shelf Shuffle
+Date: 2026-10-29 (Japan)
 
 ## Concept
-A tiny simulator for testing an app against unreliable device telemetry. Define a few sensor fields, create a timeline of glitches, and stream repeatable test data to a development build over WebSocket.
+A personal reading app that helps you choose your next book from the unread books you already own. Pick your available time and current mood, then draw three candidates from your own shelf.
 
 ## Target users
-Mobile developers building dashboards for Bluetooth devices, hobby robots, environmental sensors, or other connected products.
+Readers with a growing pile of unread books who spend more time choosing than starting.
 
 ## Problem
-A physical device may be unavailable, and real hardware rarely reproduces the same failure twice. Happy-path mock data misses stale readings, missing fields, reconnects, and bursts of updates.
+A book collection can become an overwhelming backlog. Ratings and recommendation feeds encourage more purchases while giving little help choosing among books already at home.
 
 ## Core workflow
-1. Define a JSON message template, such as battery percentage, temperature, and sequence number.
-2. Set a normal update interval and values.
-3. Add timeline events: change a value, omit a field, pause messages, send malformed JSON, or close the connection.
-4. Connect a development app through a small transport adapter.
-5. Run the scenario and inspect timestamped messages.
-6. Reset and replay the same scenario while checking the app's behavior.
+1. Add five unread books with titles and optional cover photos.
+2. Give each book simple personal tags, such as light, demanding, funny, or practical.
+3. Choose a mood and a reading window.
+4. Draw up to three matching books, with a short explanation based on your tags.
+5. Start a ten-minute reading trial and decide whether to continue, return it to the shelf, or set it aside.
+6. Save a brief note about why it did or did not suit you today.
 
-Example: Send battery updates each second, stop for ten seconds, disconnect, then reconnect with a fresh snapshot to exercise stale-data and recovery screens.
+Example: “Low energy, twenty minutes” surfaces a funny essay collection you tagged as easy to dip into.
 
 ## MVP features
-- A local desktop interface for editing message templates.
-- Deterministic timelines with explicit values and intervals.
-- One WebSocket client at a time.
-- Pause, resume, reset, and replay controls.
-- An event log showing sent messages and connection changes.
-- Scenario JSON import/export and a sample Flutter receiver.
+- Fast manual book entry and optional cover photos.
+- Editable mood, effort, and short-session suitability tags.
+- Transparent filtering and random selection among eligible books.
+- A reading-trial timer and continue/later/set-aside outcomes.
+- A cooldown so recently declined books do not appear immediately.
+- Local storage and CSV export/import.
 
-This first version simulates an application-level message stream. It does not emulate BLE pairing, radio behavior, packet fragmentation, or a complete hardware protocol.
+Avoid external recommendations, public ratings, purchase links, and automatic reading-level inference in the first version.
 
 ## Build approach
-Build an Electron desktop app with a TypeScript scenario engine and a WebSocket server bound to loopback by default. Keep the engine independent of the interface so scenarios can later run from a command line.
+Build a Flutter app with SQLite for books, tags, trial sessions, and cooldown dates. Store cover images locally and require no account.
 
-Use a monotonic clock, an ordered event queue, and stable ordering for events with equal timestamps. Pause shifts future deadlines; reset clears all scheduled events and restores initial values. Reconnection is initiated by the client, and a scenario explicitly defines what to send after a new connection.
-
-Validate scenario files before execution. Include engine tests for event ordering, pause/resume, disconnects, and cleanup between runs. The sample Flutter app demonstrates a swappable transport rather than requiring changes to production device code.
+Use user-entered tags as the source of matching. Treat the reading window as suitability for a session, not a promise to finish a book. When no books match, explain which filters excluded them and let the reader relax one constraint. Persist a trial start time so returning from the background restores the remaining time without relying on a continuously running timer.
 
 ## Validation plan
-Ask five developers with an existing connected-device UI to reproduce one known bug.
-- Measure the time to connect their app and create the scenario.
-- Check whether three replays reproduce the same message sequence.
-- Observe whether the tool exposes a stale-data or reconnect issue their usual mocks miss.
-- Ask participants to export a scenario and have another developer run it.
-- Record which missing transport behavior prevents useful testing.
+Recruit eight readers with at least ten unread books for a two-week pilot.
+- Measure the effort needed to enter the first five books.
+- Observe whether the selection explanation makes sense.
+- Record voluntary draws, started trials, and books readers choose to continue.
+- Ask whether the app helped them start reading sooner than their usual method.
+- Check whether cooldowns hide books too aggressively.
 
-Continue if at least three developers independently create a useful scenario and reuse it during a fix. Narrow the scope if most need real BLE behavior before gaining value.
+Continue if five participants voluntarily return and can name a book they started because of the app. Use the small pilot to assess behavior, not to claim increased reading volume.
 
 ## Biggest risk
-The simulator could be too far removed from the real device to reveal meaningful problems. Start with transport-independent telemetry screens, document the boundary clearly, and validate against an actual bug before building a general protocol editor.
+Cataloging and tagging may take more effort than simply picking a book. Make every field except title optional, let people begin with five books, and ask for tags gradually after trials. Validate setup friction before adding barcode lookup or a large catalog.
 
 ## Possible business model
-Offer the core local simulator free and explore paid team scenario libraries or automated replay reports after repeat use is established. Keep scenario files portable and readable.
+A free small shelf and a one-time upgrade for unlimited books and custom selection presets. Keep basic export available to all readers.
