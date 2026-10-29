@@ -1,52 +1,53 @@
-# App Idea of the Day: Shelf Shuffle
-Date: 2026-10-29 (Japan)
+# App Idea of the Day: Borrow Loop
+Date: 2026-10-30 (Japan)
 
 ## Concept
-A personal reading app that helps you choose your next book from the unread books you already own. Pick your available time and current mood, then draw three candidates from your own shelf.
+A simple lending notebook for keeping track of physical things shared with friends: books, tools, chargers, board games, and kitchen equipment. Each loan gets a photo, an agreed return date if needed, and a clear returned/not-returned state.
 
 ## Target users
-Readers with a growing pile of unread books who spend more time choosing than starting.
+People who regularly lend or borrow everyday items within an existing circle of friends, neighbors, or club members.
 
 ## Problem
-A book collection can become an overwhelming backlog. Ratings and recommendation feeds encourage more purchases while giving little help choosing among books already at home.
+Small loans disappear into chat history. Months later, neither person remembers who has the drill or which copy of a book belongs to whom, and asking can feel awkward.
 
 ## Core workflow
-1. Add five unread books with titles and optional cover photos.
-2. Give each book simple personal tags, such as light, demanding, funny, or practical.
-3. Choose a mood and a reading window.
-4. Draw up to three matching books, with a short explanation based on your tags.
-5. Start a ten-minute reading trial and decide whether to continue, return it to the shelf, or set it aside.
-6. Save a brief note about why it did or did not suit you today.
+1. Photograph an item and choose “I lent this” or “I borrowed this.”
+2. Enter the other person's nickname manually and optionally set an agreed return date.
+3. Save a note about accessories or condition.
+4. View open loans grouped by person or item.
+5. When needed, copy a neutral reminder draft into your preferred messaging app.
+6. Mark the item returned and retain a searchable closed record.
 
-Example: “Low energy, twenty minutes” surfaces a funny essay collection you tagged as easy to dip into.
+Example: “Cordless drill + charger, lent to Alex. Needed back before Saturday.” The app reminds its owner privately; it never contacts Alex automatically.
 
 ## MVP features
-- Fast manual book entry and optional cover photos.
-- Editable mood, effort, and short-session suitability tags.
-- Transparent filtering and random selection among eligible books.
-- A reading-trial timer and continue/later/set-aside outcomes.
-- A cooldown so recently declined books do not appear immediately.
-- Local storage and CSV export/import.
+- Fast item photo and title entry.
+- Lending and borrowing records with optional due dates.
+- Local reminders with snooze and an overdue filter.
+- Accessory checklist and short handoff notes.
+- Editable reminder text with copy-to-clipboard.
+- Return confirmation, undo, and local backup export/import.
 
-Avoid external recommendations, public ratings, purchase links, and automatic reading-level inference in the first version.
+Start with a private notebook. Accounts, contact-book access, shared confirmations, public listings, payments, and a lending marketplace are outside the MVP.
 
 ## Build approach
-Build a Flutter app with SQLite for books, tags, trial sessions, and cooldown dates. Store cover images locally and require no account.
+Build a Flutter app with SQLite for items, people aliases, and loan records, plus local attachment storage. Require no account and collect no recipient contact details.
 
-Use user-entered tags as the source of matching. Treat the reading window as suitability for a session, not a promise to finish a book. When no books match, explain which filters excluded them and let the reader relax one constraint. Persist a trial start time so returning from the background restores the remaining time without relying on a continuously running timer.
+Represent loans as open or returned, storing handoff and return timestamps separately. Schedule local notifications only when the user chooses a reminder; reschedule them after due-date edits and cancel them on return. Export a versioned JSON manifest with photos in a ZIP archive. Keep reminder drafts editable and require a separate user action to copy or share them.
 
 ## Validation plan
-Recruit eight readers with at least ten unread books for a two-week pilot.
-- Measure the effort needed to enter the first five books.
-- Observe whether the selection explanation makes sense.
-- Record voluntary draws, started trials, and books readers choose to continue.
-- Ask whether the app helped them start reading sooner than their usual method.
-- Check whether cooldowns hide books too aggressively.
+Recruit eight people who have at least two items currently borrowed or lent, and run a three-week pilot.
+- Measure time to record an existing loan.
+- Ask participants to locate an item or person in their records.
+- Observe whether accessory notes prevent confusion.
+- Track voluntary new entries and completed returns.
+- Ask whether reminders feel useful or socially uncomfortable.
+- Verify that restoring a backup preserves open and closed records.
 
-Continue if five participants voluntarily return and can name a book they started because of the app. Use the small pilot to assess behavior, not to claim increased reading volume.
+Proceed if five participants voluntarily record another loan and can retrieve a useful detail faster than with their usual notes or chat search. Do not treat returned items alone as proof the app caused better repayment behavior.
 
 ## Biggest risk
-Cataloging and tagging may take more effort than simply picking a book. Make every field except title optional, let people begin with five books, and ask for tags gradually after trials. Validate setup friction before adding barcode lookup or a large catalog.
+People may forget to create the record during a casual handoff, leaving the notebook incomplete. Make a photo and title sufficient to start, allow missing details to be added later, and validate capture speed before building shared workflows.
 
 ## Possible business model
-A free small shelf and a one-time upgrade for unlimited books and custom selection presets. Keep basic export available to all readers.
+Free for a small number of open loans, with a one-time upgrade for unlimited open records and custom reminder presets. Keep closed history and basic backup export available to everyone.
