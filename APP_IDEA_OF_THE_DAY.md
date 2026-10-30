@@ -1,53 +1,54 @@
-# App Idea of the Day: Borrow Loop
-Date: 2026-10-30 (Japan)
+# App Idea of the Day: Foldback
+Date: 2026-10-31 (Japan)
 
 ## Concept
-A simple lending notebook for keeping track of physical things shared with friends: books, tools, chargers, board games, and kitchen equipment. Each loan gets a photo, an agreed return date if needed, and a clear returned/not-returned state.
+A paper-folding practice app that lets people record the tricky steps of their own origami models as short photo sequences, then replay them with a large, hands-free-friendly step view.
 
 ## Target users
-People who regularly lend or borrow everyday items within an existing circle of friends, neighbors, or club members.
+Origami hobbyists, craft teachers, and people who learn a model once but forget the difficult fold when trying again.
 
 ## Problem
-Small loans disappear into chat history. Months later, neither person remembers who has the drill or which copy of a book belongs to whom, and asking can feel awkward.
+Long videos are awkward to scrub through while holding paper. Static diagrams can leave out the exact intermediate shape a learner needs, while personal photos become scattered in a gallery.
 
 ## Core workflow
-1. Photograph an item and choose “I lent this” or “I borrowed this.”
-2. Enter the other person's nickname manually and optionally set an agreed return date.
-3. Save a note about accessories or condition.
-4. View open loans grouped by person or item.
-5. When needed, copy a neutral reminder draft into your preferred messaging app.
-6. Mark the item returned and retain a searchable closed record.
+1. Create a model and note the paper size and starting orientation.
+2. Photograph each important intermediate shape.
+3. Add a short instruction and optional arrow annotation.
+4. Mark difficult steps for extra practice.
+5. Open practice mode, advance through the sequence, and jump directly to a marked fold.
+6. Save a separate attempt photo and note what went wrong.
 
-Example: “Cordless drill + charger, lent to Alex. Needed back before Saturday.” The app reminds its owner privately; it never contacts Alex automatically.
+Example: A crane sequence includes close-up photos immediately before and after the reverse fold, plus “open the pocket before flattening.”
 
 ## MVP features
-- Fast item photo and title entry.
-- Lending and borrowing records with optional due dates.
-- Local reminders with snooze and an overdue filter.
-- Accessory checklist and short handoff notes.
-- Editable reminder text with copy-to-clipboard.
-- Return confirmation, undo, and local backup export/import.
+- Ordered photo steps with captions and simple drawn arrows.
+- Insert, duplicate, reorder, and delete steps.
+- Large practice controls and adjustable screen-awake behavior.
+- Bookmarks for difficult folds.
+- Paper size, model attribution, and source-link fields.
+- Offline collections and ZIP export/import.
 
-Start with a private notebook. Accounts, contact-book access, shared confirmations, public listings, payments, and a lending marketplace are outside the MVP.
+Start with user-created sequences. Public pattern sharing, automatic fold recognition, 3D simulation, and a licensed tutorial catalog are outside the first release.
 
 ## Build approach
-Build a Flutter app with SQLite for items, people aliases, and loan records, plus local attachment storage. Require no account and collect no recipient contact details.
+Build a Flutter app with SQLite for models, ordered steps, and attempt notes, plus app-private image storage. Keep the original photo and annotation coordinates separately so arrows remain editable.
 
-Represent loans as open or returned, storing handoff and return timestamps separately. Schedule local notifications only when the user chooses a reminder; reschedule them after due-date edits and cancel them on return. Export a versioned JSON manifest with photos in a ZIP archive. Keep reminder drafts editable and require a separate user action to copy or share them.
+Normalize photo orientation before annotation and store coordinates relative to image dimensions. Save edits immediately and provide undo for step deletion. Export a versioned JSON manifest alongside image assets; validate referenced files during import.
+
+The central interaction should remain simple enough to use with paper in hand. Test large tap targets and an optional delayed advance button before considering voice controls.
 
 ## Validation plan
-Recruit eight people who have at least two items currently borrowed or lent, and run a three-week pilot.
-- Measure time to record an existing loan.
-- Ask participants to locate an item or person in their records.
-- Observe whether accessory notes prevent confusion.
-- Track voluntary new entries and completed returns.
-- Ask whether reminders feel useful or socially uncomfortable.
-- Verify that restoring a backup preserves open and closed records.
+Recruit six origami learners and two instructors for a small usability pilot.
+- Have each learner document one difficult section of a model they already know.
+- A week later, ask them to repeat it using their sequence.
+- Observe navigation mistakes and missing intermediate views.
+- Compare the effort of making a sequence with finding the same point in their usual tutorial.
+- Ask instructors whether annotations clarify the fold without obscuring the paper.
 
-Proceed if five participants voluntarily record another loan and can retrieve a useful detail faster than with their usual notes or chat search. Do not treat returned items alone as proof the app caused better repayment behavior.
+Continue if four learners voluntarily reuse a sequence and can identify a specific fold it helped them remember. If capture is too burdensome, narrow the app to bookmarking a few difficult steps.
 
 ## Biggest risk
-People may forget to create the record during a casual handoff, leaving the notebook incomplete. Make a photo and title sufficient to start, allow missing details to be added later, and validate capture speed before building shared workflows.
+Creating instructions may take more effort than replaying an existing video. Focus on personal memory aids for difficult folds, allow a useful sequence to contain only two or three photos, and validate capture effort before expanding into full tutorials.
 
 ## Possible business model
-Free for a small number of open loans, with a one-time upgrade for unlimited open records and custom reminder presets. Keep closed history and basic backup export available to everyone.
+Free for a few models, with a one-time upgrade for unlimited collections and custom practice layouts. Keep basic export available to everyone.
