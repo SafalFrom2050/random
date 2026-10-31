@@ -1,54 +1,54 @@
-# App Idea of the Day: Foldback
-Date: 2026-10-31 (Japan)
+# App Idea of the Day: Round Robin
+Date: 2026-11-01 (Japan)
 
 ## Concept
-A paper-folding practice app that lets people record the tricky steps of their own origami models as short photo sequences, then replay them with a large, hands-free-friendly step view.
+A casual sports-session organizer that rotates players through short matches while balancing playing time and avoiding repeated teammates. One person runs the session from a phone.
 
 ## Target users
-Origami hobbyists, craft teachers, and people who learn a model once but forget the difficult fold when trying again.
+Small badminton, table-tennis, or doubles-tennis groups that meet informally and have more players than available courts.
 
 ## Problem
-Long videos are awkward to scrub through while holding paper. Static diagrams can leave out the exact intermediate shape a learner needs, while personal photos become scattered in a gallery.
+Organizers repeatedly stop playing to decide who goes next. Some people sit out too long, and the same pairs keep forming even when everyone wants variety.
 
 ## Core workflow
-1. Create a model and note the paper size and starting orientation.
-2. Photograph each important intermediate shape.
-3. Add a short instruction and optional arrow annotation.
-4. Mark difficult steps for extra practice.
-5. Open practice mode, advance through the sequence, and jump directly to a marked fold.
-6. Save a separate attempt photo and note what went wrong.
+1. Add player nicknames, choose singles or doubles, and enter the number of courts.
+2. Mark who is ready, resting, or leaving.
+3. Generate the next round, with an explanation such as “These players have waited longest.”
+4. Make any manual swaps and confirm the assignments.
+5. Finish the round and record who actually played.
+6. Repeat, then review a simple participation summary.
 
-Example: A crane sequence includes close-up photos immediately before and after the reverse fold, plus “open the pocket before flattening.”
+Example: Seven players on one doubles court get rotating groups of four, with the organizer able to keep an injured player resting without removing their history.
 
 ## MVP features
-- Ordered photo steps with captions and simple drawn arrows.
-- Insert, duplicate, reorder, and delete steps.
-- Large practice controls and adjustable screen-awake behavior.
-- Bookmarks for difficult folds.
-- Paper size, model attribution, and source-link fields.
-- Offline collections and ZIP export/import.
+- Session roster and player availability.
+- Singles or doubles assignments for one or two courts.
+- Participation counts and rounds spent waiting.
+- Teammate and opponent repetition tracking.
+- Manual swaps, undo, and session recovery.
+- A large court-assignment screen and text summary export.
 
-Start with user-created sequences. Public pattern sharing, automatic fold recognition, 3D simulation, and a licensed tutorial catalog are outside the first release.
+Treat each round as a shared block; asynchronous court scheduling, skill ratings, rankings, payments, and online invitations are outside the MVP.
 
 ## Build approach
-Build a Flutter app with SQLite for models, ordered steps, and attempt notes, plus app-private image storage. Keep the original photo and annotation coordinates separately so arrows remain editable.
+Build a Flutter app with SQLite for sessions, players, and confirmed rounds. Generate candidate assignments locally.
 
-Normalize photo orientation before annotation and store coordinates relative to image dimensions. Save edits immediately and provide undo for step deletion. Export a versioned JSON manifest alongside image assets; validate referenced files during import.
+Use an explicit priority order: first reduce differences in rounds played among available players, then favor those waiting longest, then reduce repeated teammates and opponents. Show the tradeoff when perfect balance is impossible. Do not count a proposed round until the organizer confirms it, and preserve the actual lineup after manual swaps.
 
-The central interaction should remain simple enough to use with paper in hand. Test large tap targets and an optional delayed advance button before considering voice controls.
+For small rosters, enumerate feasible assignments with a cap on candidates; use a deterministic tie-breaker so regenerating without changes is predictable. Test odd player counts, availability changes, undo, and session restoration.
 
 ## Validation plan
-Recruit six origami learners and two instructors for a small usability pilot.
-- Have each learner document one difficult section of a model they already know.
-- A week later, ask them to repeat it using their sequence.
-- Observe navigation mistakes and missing intermediate views.
-- Compare the effort of making a sequence with finding the same point in their usual tutorial.
-- Ask instructors whether annotations clarify the fold without obscuring the paper.
+Pilot with four existing groups over three sessions each.
+- Compare organizing time with their normal method.
+- Check participation differences and maximum consecutive rounds waiting.
+- Record manual overrides and the reasons for them.
+- Ask whether people understand why they were assigned or rested.
+- Test mid-session arrivals and departures.
 
-Continue if four learners voluntarily reuse a sequence and can identify a specific fold it helped them remember. If capture is too burdensome, narrow the app to bookmarking a few difficult steps.
+Continue if three groups choose to use it again and organizers report less coordination effort without players feeling that the rotation is unfair. Analyze overrides before tuning the selection rules.
 
 ## Biggest risk
-Creating instructions may take more effort than replaying an existing video. Focus on personal memory aids for difficult folds, allow a useful sequence to contain only two or three photos, and validate capture effort before expanding into full tutorials.
+Numerical balance may conflict with social preferences, fatigue, or people wanting a specific partner. Keep the selection rules understandable, make manual changes easy, and use availability controls rather than silently assuming everyone wants equal play.
 
 ## Possible business model
-Free for a few models, with a one-time upgrade for unlimited collections and custom practice layouts. Keep basic export available to everyone.
+Free for basic sessions, with a one-time upgrade for saved group presets, more courts, and custom rotation priorities. Keep participation summaries and session recovery available to everyone.
