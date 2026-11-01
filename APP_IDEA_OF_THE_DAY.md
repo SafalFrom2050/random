@@ -1,54 +1,53 @@
-# App Idea of the Day: Round Robin
-Date: 2026-11-01 (Japan)
+# App Idea of the Day: Prop Table
+Date: 2026-11-02 (Japan)
 
 ## Concept
-A casual sports-session organizer that rotates players through short matches while balancing playing time and avoiding repeated teammates. One person runs the session from a phone.
+A continuity notebook for small video productions that records where props belong in each scene. Take a reference photo, label important objects, and compare the setup before the next take.
 
 ## Target users
-Small badminton, table-tennis, or doubles-tennis groups that meet informally and have more players than available courts.
+Student filmmakers, solo video creators, and small theater or stop-motion teams working without a dedicated continuity assistant.
 
 ## Problem
-Organizers repeatedly stop playing to decide who goes next. Some people sit out too long, and the same pairs keep forming even when everyone wants variety.
+A cup changes sides, a jacket disappears, or a notebook opens to a different page between takes. Ordinary camera rolls make the correct reference hard to find when a team is ready to shoot.
 
 ## Core workflow
-1. Add player nicknames, choose singles or doubles, and enter the number of courts.
-2. Mark who is ready, resting, or leaving.
-3. Generate the next round, with an explanation such as “These players have waited longest.”
-4. Make any manual swaps and confirm the assignments.
-5. Finish the round and record who actually played.
-6. Repeat, then review a simple participation summary.
+1. Create a production, scene, and setup.
+2. Photograph the approved arrangement before filming.
+3. Add numbered markers with notes such as “handle faces left” or “half full.”
+4. Mark the photo as the reference for that setup.
+5. Before another take, open the reference beside a fresh check photo.
+6. Record intentional changes as a new reference version.
 
-Example: Seven players on one doubles court get rotating groups of four, with the organizer able to keep an injured player resting without removing their history.
+Example: A kitchen scene preserves the mug position, chair angle, and towel placement when filming resumes the following day.
 
 ## MVP features
-- Session roster and player availability.
-- Singles or doubles assignments for one or two courts.
-- Participation counts and rounds spent waiting.
-- Teammate and opponent repetition tracking.
-- Manual swaps, undo, and session recovery.
-- A large court-assignment screen and text summary export.
+- Production → scene → setup organization.
+- Reference photos with editable markers and notes.
+- Side-by-side and adjustable-opacity image comparison.
+- Explicit reference approval and version labels.
+- A short pre-take checklist.
+- Offline storage and per-scene ZIP export/import.
 
-Treat each round as a shared block; asynchronous court scheduling, skill ratings, rankings, payments, and online invitations are outside the MVP.
+Keep automatic object detection, cloud collaboration, script parsing, and full production scheduling outside the first release.
 
 ## Build approach
-Build a Flutter app with SQLite for sessions, players, and confirmed rounds. Generate candidate assignments locally.
+Build a Flutter tablet-and-phone app with SQLite metadata and app-private image files. Store marker coordinates relative to the normalized image dimensions so annotations survive resizing.
 
-Use an explicit priority order: first reduce differences in rounds played among available players, then favor those waiting longest, then reduce repeated teammates and opponents. Show the tradeoff when perfect balance is impossible. Do not count a proposed round until the organizer confirms it, and preserve the actual lineup after manual swaps.
-
-For small rosters, enumerate feasible assignments with a cap on candidates; use a deterministic tie-breaker so regenerating without changes is predictable. Test odd player counts, availability changes, undo, and session restoration.
+Keep reference versions immutable after approval; edits create a new version, and the user explicitly chooses which is current. Comparison supports manual zoom and alignment, since camera position may change. Do not imply that an overlay can automatically prove continuity. Export a versioned JSON manifest with reference photos and annotations.
 
 ## Validation plan
-Pilot with four existing groups over three sessions each.
-- Compare organizing time with their normal method.
-- Check participation differences and maximum consecutive rounds waiting.
-- Record manual overrides and the reasons for them.
-- Ask whether people understand why they were assigned or rested.
-- Test mid-session arrivals and departures.
+Pilot with four small filmmaking teams during a short scene shoot.
+- Measure time to locate the correct setup reference.
+- Observe whether markers capture details the team otherwise forgets.
+- Record continuity mismatches noticed before shooting another take.
+- Test resuming a scene after a day away.
+- Ask whether maintaining references slows the shoot excessively.
+- Verify export and restore on a second device.
 
-Continue if three groups choose to use it again and organizers report less coordination effort without players feeling that the rotation is unfair. Analyze overrides before tuning the selection rules.
+Continue if three teams voluntarily use it on another scene and identify a concrete mistake it helped them catch. Review capture overhead before adding more production features.
 
 ## Biggest risk
-Numerical balance may conflict with social preferences, fatigue, or people wanting a specific partner. Keep the selection rules understandable, make manual changes easy, and use availability controls rather than silently assuming everyone wants equal play.
+A busy crew may forget to capture an approved setup, or select the wrong reference. Make the current scene and reference label prominent, keep capture to a few taps, and distinguish unapproved photos clearly. Validate that the habit fits an actual shoot.
 
 ## Possible business model
-Free for basic sessions, with a one-time upgrade for saved group presets, more courts, and custom rotation priorities. Keep participation summaries and session recovery available to everyone.
+Free for one active production, with a one-time upgrade for multiple productions and printable continuity sheets. Keep basic scene export available to everyone.
