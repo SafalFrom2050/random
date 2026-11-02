@@ -1,53 +1,53 @@
-# App Idea of the Day: Prop Table
-Date: 2026-11-02 (Japan)
+# App Idea of the Day: Taste Compass
+Date: 2026-11-03 (Japan)
 
 ## Concept
-A continuity notebook for small video productions that records where props belong in each scene. Take a reference photo, label important objects, and compare the setup before the next take.
+A personal tasting notebook that helps you discover what you enjoy in coffee or tea through simple side-by-side comparisons. Record two drinks, pick which you prefer, and keep a short explanation in your own words.
 
 ## Target users
-Student filmmakers, solo video creators, and small theater or stop-motion teams working without a dedicated continuity assistant.
+Curious home brewers and café visitors who want to understand their preferences without learning specialist tasting vocabulary.
 
 ## Problem
-A cup changes sides, a jacket disappears, or a notebook opens to a different page between takes. Ordinary camera rolls make the correct reference hard to find when a team is ready to shoot.
+Star ratings flatten different experiences into one number. People remember liking a drink but forget whether it was the roast, brewing method, sweetness, or setting that mattered.
 
 ## Core workflow
-1. Create a production, scene, and setup.
-2. Photograph the approved arrangement before filming.
-3. Add numbered markers with notes such as “handle faces left” or “half full.”
-4. Mark the photo as the reference for that setup.
-5. Before another take, open the reference beside a fresh check photo.
-6. Record intentional changes as a new reference version.
+1. Create a coffee or tea entry with a name, optional photo, and a few preparation details.
+2. Compare it with another entry, either tasted together or from memory.
+3. Choose a preference, a tie, or “too different to compare.”
+4. Add a plain-language reason such as “less bitter” or “better without milk.”
+5. Browse preferences within comparable groups and revisit notes before brewing or buying again.
 
-Example: A kitchen scene preserves the mug position, chair angle, and towel placement when filming resumes the following day.
+Example: Two preparations of the same tea reveal that the user preferred the shorter steep. The app records that observation without claiming steeping time caused the preference.
 
 ## MVP features
-- Production → scene → setup organization.
-- Reference photos with editable markers and notes.
-- Side-by-side and adjustable-opacity image comparison.
-- Explicit reference approval and version labels.
-- A short pre-take checklist.
-- Offline storage and per-scene ZIP export/import.
+- Separate coffee and tea collections.
+- Optional preparation fields and custom flavor tags.
+- Pairwise preference, tie, and incomparable outcomes.
+- A clear distinction between simultaneous tasting and memory-based comparison.
+- Search, photos, and a simple comparison history.
+- Local storage and CSV/JSON export.
 
-Keep automatic object detection, cloud collaboration, script parsing, and full production scheduling outside the first release.
+Keep automated flavor identification, universal rankings, shopping recommendations, and public reviews outside the MVP.
 
 ## Build approach
-Build a Flutter tablet-and-phone app with SQLite metadata and app-private image files. Store marker coordinates relative to the normalized image dimensions so annotations survive resizing.
+Build a Flutter app with SQLite for drinks, preparation records, and comparison events. Store photos locally and require no account.
 
-Keep reference versions immutable after approval; edits create a new version, and the user explicitly chooses which is current. Comparison supports manual zoom and alignment, since camera position may change. Do not imply that an overlay can automatically prove continuity. Export a versioned JSON manifest with reference photos and annotations.
+Show direct comparison results and counts rather than manufacturing a precise global score from a small sample. Allow contradictory preferences and distinguish preparation attempts from the underlying product. Preserve units for brew quantities and temperatures, and let users omit any field.
+
+Export a versioned JSON backup with optional image attachments; offer a flat CSV for notes and comparisons.
 
 ## Validation plan
-Pilot with four small filmmaking teams during a short scene shoot.
-- Measure time to locate the correct setup reference.
-- Observe whether markers capture details the team otherwise forgets.
-- Record continuity mismatches noticed before shooting another take.
-- Test resuming a scene after a day away.
-- Ask whether maintaining references slows the shoot excessively.
-- Verify export and restore on a second device.
+Recruit eight casual coffee or tea drinkers for a two-week pilot.
+- Ask each person to record three drinks and one comparison.
+- Measure entry time and which fields they skip.
+- Check whether they can retrieve a useful preference before preparing another drink.
+- Track voluntary comparisons after the initial task.
+- Ask whether the notebook teaches them something specific about their own taste.
 
-Continue if three teams voluntarily use it on another scene and identify a concrete mistake it helped them catch. Review capture overhead before adding more production features.
+Continue if five people return voluntarily and can describe a choice their notes helped them make. Treat recorded preferences as personal observations, not controlled experimental findings.
 
 ## Biggest risk
-A busy crew may forget to capture an approved setup, or select the wrong reference. Make the current scene and reference label prominent, keep capture to a few taps, and distinguish unapproved photos clearly. Validate that the habit fits an actual shoot.
+Logging could feel like work, and memory-based comparisons may be unreliable. Make name and preference sufficient, show comparison context clearly, and encourage short notes rather than exhaustive scoring. Validate usefulness before building charts or ranking algorithms.
 
 ## Possible business model
-Free for one active production, with a one-time upgrade for multiple productions and printable continuity sheets. Keep basic scene export available to everyone.
+Free for a modest collection, with a one-time upgrade for unlimited entries and custom preparation templates. Keep basic backup and export available to everyone.
