@@ -1,53 +1,52 @@
-# App Idea of the Day: Taste Compass
-Date: 2026-11-03 (Japan)
+# App Idea of the Day: Puzzle Parking
+Date: 2026-11-04 (Japan)
 
 ## Concept
-A personal tasting notebook that helps you discover what you enjoy in coffee or tea through simple side-by-side comparisons. Record two drinks, pick which you prefer, and keep a short explanation in your own words.
+A companion for physical jigsaw puzzles that helps people pause a puzzle, pack away loose pieces, and resume without losing their sorting system.
 
 ## Target users
-Curious home brewers and café visitors who want to understand their preferences without learning specialist tasting vocabulary.
+Puzzle hobbyists working on shared tables, people with limited space, and households that cannot leave a puzzle spread out for days.
 
 ## Problem
-Star ratings flatten different experiences into one number. People remember liking a drink but forget whether it was the roast, brewing method, sweetness, or setting that mattered.
+Packing away a half-finished puzzle destroys the useful work of sorting pieces into groups. A photo alone does not explain which bag contains the sky pieces or what section someone planned to tackle next.
 
 ## Core workflow
-1. Create a coffee or tea entry with a name, optional photo, and a few preparation details.
-2. Compare it with another entry, either tasted together or from memory.
-3. Choose a preference, a tie, or “too different to compare.”
-4. Add a plain-language reason such as “less bitter” or “better without milk.”
-5. Browse preferences within comparable groups and revisit notes before brewing or buying again.
+1. Create a puzzle project with its title, piece count, and reference photo.
+2. Photograph the current board before clearing the table.
+3. Create labeled groups such as “dark blue edges” or “window lettering.”
+4. Assign each group a bag or tray label and optional photo.
+5. Save a short next-step note.
+6. On return, open a resume screen showing the board, group locations, and next step.
 
-Example: Two preparations of the same tea reveal that the user preferred the shorter steep. The app records that observation without claiming steeping time caused the preference.
+Example: “Bag C: pale sky pieces; Tray 2: roof sections. Next: connect the two red rooftops.”
 
 ## MVP features
-- Separate coffee and tea collections.
-- Optional preparation fields and custom flavor tags.
-- Pairwise preference, tie, and incomparable outcomes.
-- A clear distinction between simultaneous tasting and memory-based comparison.
-- Search, photos, and a simple comparison history.
-- Local storage and CSV/JSON export.
+- Multiple puzzle projects and progress snapshots.
+- Piece-group cards with editable labels and container identifiers.
+- A printable sheet of simple lettered container labels.
+- A pause checklist and next-step note.
+- Search by group description or container.
+- Offline storage and project backup export/import.
 
-Keep automated flavor identification, universal rankings, shopping recommendations, and public reviews outside the MVP.
+Keep automatic piece matching, camera-based completion estimates, public collections, and marketplace features outside the first release.
 
 ## Build approach
-Build a Flutter app with SQLite for drinks, preparation records, and comparison events. Store photos locally and require no account.
+Build a Flutter app with SQLite for projects, snapshots, and groups, plus local image storage. Each pause creates a dated snapshot linked to the active group list.
 
-Show direct comparison results and counts rather than manufacturing a precise global score from a small sample. Allow contradictory preferences and distinguish preparation attempts from the underlying product. Preserve units for brew quantities and temperatures, and let users omit any field.
-
-Export a versioned JSON backup with optional image attachments; offer a flat CSV for notes and comparisons.
+Use stable group identifiers so renaming a bag does not break its history. Allow groups to be merged or marked used when their pieces join the board. Generate label sheets as PDFs using the same container identifiers shown in the app. Export a versioned JSON manifest with image attachments in a ZIP archive.
 
 ## Validation plan
-Recruit eight casual coffee or tea drinkers for a two-week pilot.
-- Ask each person to record three drinks and one comparison.
-- Measure entry time and which fields they skip.
-- Check whether they can retrieve a useful preference before preparing another drink.
-- Track voluntary comparisons after the initial task.
-- Ask whether the notebook teaches them something specific about their own taste.
+Recruit eight puzzlers who regularly clear their workspace for a two-week pilot.
+- Observe one pack-away and restart using their usual method.
+- Measure app setup and logging effort during another session.
+- Check whether users can locate a requested piece group after several days.
+- Track voluntary reuse on later pauses.
+- Ask which notes and photos actually helped them resume.
 
-Continue if five people return voluntarily and can describe a choice their notes helped them make. Treat recorded preferences as personal observations, not controlled experimental findings.
+Continue if five participants reuse it voluntarily and report that finding groups is easier without excessive logging. If full inventories are burdensome, narrow the app to a board photo and a few bag labels.
 
 ## Biggest risk
-Logging could feel like work, and memory-based comparisons may be unreliable. Make name and preference sufficient, show comparison context clearly, and encourage short notes rather than exhaustive scoring. Validate usefulness before building charts or ranking algorithms.
+Documenting groups may take longer than simply reopening the bags. Make a container letter and photo sufficient, allow bulk capture, and validate time spent during real pack-away sessions before adding detailed tracking.
 
 ## Possible business model
-Free for a modest collection, with a one-time upgrade for unlimited entries and custom preparation templates. Keep basic backup and export available to everyone.
+Free for a few active puzzles, with a one-time upgrade for unlimited projects and custom label layouts. Keep basic backup export available to everyone.
