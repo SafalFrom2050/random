@@ -1,52 +1,55 @@
-# App Idea of the Day: Puzzle Parking
-Date: 2026-11-04 (Japan)
+# App Idea of the Day: Margin Map
+Date: 2026-11-05 (Japan)
 
 ## Concept
-A companion for physical jigsaw puzzles that helps people pause a puzzle, pack away loose pieces, and resume without losing their sorting system.
+A personal index for handwritten notebooks. Photograph a page, add a few searchable keywords and its page number, then find the physical note later without digitizing the entire notebook.
 
 ## Target users
-Puzzle hobbyists working on shared tables, people with limited space, and households that cannot leave a puzzle spread out for days.
+Students, engineers, researchers, and journal users who prefer writing on paper but struggle to retrieve old notes.
 
 ## Problem
-Packing away a half-finished puzzle destroys the useful work of sorting pieces into groups. A photo alone does not explain which bag contains the sky pieces or what section someone planned to tackle next.
+Useful sketches and explanations are buried across multiple notebooks. Full scanning requires too much effort, while a table of contents becomes outdated as topics reappear on later pages.
 
 ## Core workflow
-1. Create a puzzle project with its title, piece count, and reference photo.
-2. Photograph the current board before clearing the table.
-3. Create labeled groups such as “dark blue edges” or “window lettering.”
-4. Assign each group a bag or tray label and optional photo.
-5. Save a short next-step note.
-6. On return, open a resume screen showing the board, group locations, and next step.
+1. Give a notebook a name and an optional cover photo.
+2. When a page seems worth finding again, photograph it and enter its page number.
+3. Add a title and two or three keywords.
+4. Search across notebooks by topic.
+5. Open a result to see the image and physical location, such as “Blue notebook, page 47.”
+6. Link related pages without moving or rewriting the original notes.
 
-Example: “Bag C: pale sky pieces; Tray 2: roof sections. Next: connect the two red rooftops.”
+Example: Searching “CAN termination” finds three relevant pages across two engineering notebooks.
 
 ## MVP features
-- Multiple puzzle projects and progress snapshots.
-- Piece-group cards with editable labels and container identifiers.
-- A printable sheet of simple lettered container labels.
-- A pause checklist and next-step note.
-- Search by group description or container.
-- Offline storage and project backup export/import.
+- Notebook records with cover images and optional shelf-location notes.
+- Page entries with manual page numbers, titles, keywords, and photos.
+- Search across all notebooks with notebook and tag filters.
+- Links between related entries.
+- A quick capture queue for adding metadata later.
+- Offline storage and ZIP backup export/import.
 
-Keep automatic piece matching, camera-based completion estimates, public collections, and marketplace features outside the first release.
+Keep handwriting recognition, cloud sync, automatic summaries, and full PDF notebook scanning outside the first release.
 
 ## Build approach
-Build a Flutter app with SQLite for projects, snapshots, and groups, plus local image storage. Each pause creates a dated snapshot linked to the active group list.
+Build a Flutter app with SQLite for notebooks, page entries, keywords, and links. Store photos in app-private files and use local text search over user-entered metadata.
 
-Use stable group identifiers so renaming a bag does not break its history. Allow groups to be merged or marked used when their pieces join the board. Generate label sheets as PDFs using the same container identifiers shown in the app. Export a versioned JSON manifest with image attachments in a ZIP archive.
+Allow page ranges and unnumbered pages with a custom location label. Warn about duplicate page entries but allow multiple topics on one page. Save a captured photo before opening the metadata form so interruptions do not lose it. Normalize image orientation and generate thumbnails for search results.
+
+Export a versioned JSON manifest with original images. Validate imports and restore links by stable identifiers rather than titles. Start with manual indexing to test whether the retrieval benefit justifies capture effort before investing in OCR.
 
 ## Validation plan
-Recruit eight puzzlers who regularly clear their workspace for a two-week pilot.
-- Observe one pack-away and restart using their usual method.
-- Measure app setup and logging effort during another session.
-- Check whether users can locate a requested piece group after several days.
-- Track voluntary reuse on later pauses.
-- Ask which notes and photos actually helped them resume.
+Recruit eight frequent paper-note users for a two-week pilot.
+- Ask each person to index five existing pages.
+- After several days, give them a topic-retrieval task using their own notes.
+- Compare retrieval time and success with their usual method.
+- Measure capture effort and metadata fields commonly skipped.
+- Track voluntary indexing of new pages after the initial task.
+- Verify that backup restoration preserves images and cross-links.
 
-Continue if five participants reuse it voluntarily and report that finding groups is easier without excessive logging. If full inventories are burdensome, narrow the app to a board photo and a few bag labels.
+Continue if five participants voluntarily add new entries and can retrieve a useful note faster than before. Treat the small study as a usability signal rather than proof of productivity gains.
 
 ## Biggest risk
-Documenting groups may take longer than simply reopening the bags. Make a container letter and photo sufficient, allow bulk capture, and validate time spent during real pack-away sessions before adding detailed tracking.
+Users may index pages inconsistently or choose keywords they do not remember later. Make titles searchable, show recently used tags, and allow quick capture followed by optional cleanup. If logging becomes burdensome, focus on a small set of high-value pages rather than complete notebook coverage.
 
 ## Possible business model
-Free for a few active puzzles, with a one-time upgrade for unlimited projects and custom label layouts. Keep basic backup export available to everyone.
+Free for a few notebooks, with a one-time upgrade for unlimited notebooks and printable topic indexes. Keep basic search and backup export available to everyone.
