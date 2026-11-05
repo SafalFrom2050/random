@@ -35,6 +35,15 @@ Build a Flutter app with SQLite for songs, sections, rehearsal plans, and outcom
 
 Let users arrange their own blocks; offer a simple suggestion that prioritizes selected unresolved sections rather than pretending to optimize musical progress. Distinguish planned time from actual elapsed time. Save after each block so interruptions do not erase rehearsal notes.
 
+## Rehearsal behavior and data design
+Each block has a type: setup, break, full song, or focused section. A focused section gets its own time budget; its duration is not inferred from the full song.
+
+Starting a session freezes a copy of the plan so later song-library edits cannot alter what the group rehearsed. Each block can be completed, skipped, or left unfinished. An outcome can resolve a problem section or leave it open with a next-step note.
+
+Use a monotonic timer while active, pause on backgrounding, and ask whether to resume or manually add time when returning. Show remaining planned time separately from actual time spent. If a block runs long, offer to shorten or remove later blocks without changing them automatically.
+
+Give songs and sections stable identifiers. Archive a song referenced by past sessions rather than deleting its history. Export a versioned JSON backup in addition to the readable text plan; validate imports before replacing data.
+
 ## Validation plan
 Pilot with four bands over three rehearsals each. Observe planning time, how often the group follows the plan, and whether unresolved sections remain easy to find. Ask whether the app reduces discussion overhead without making rehearsal feel rigid.
 
