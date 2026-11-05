@@ -1,55 +1,47 @@
-# App Idea of the Day: Margin Map
-Date: 2026-11-05 (Japan)
+# App Idea of the Day: Setlist Pocket
+Date: 2026-11-06 (Japan)
 
 ## Concept
-A personal index for handwritten notebooks. Photograph a page, add a few searchable keywords and its page number, then find the physical note later without digitizing the entire notebook.
+A rehearsal planner for amateur bands that turns a setlist into a practical practice session. Give each song a rough duration and mark troublesome sections, then build a rehearsal around the time available.
 
 ## Target users
-Students, engineers, researchers, and journal users who prefer writing on paper but struggle to retrieve old notes.
+Small bands, school music clubs, and casual ensembles with limited shared rehearsal time.
 
 ## Problem
-Useful sketches and explanations are buried across multiple notebooks. Full scanning requires too much effort, while a table of contents becomes outdated as topics reappear on later pages.
+Groups spend valuable rehearsal time deciding what to play. Running whole songs repeatedly can leave difficult transitions untouched, and notes about what needs work get lost between sessions.
 
 ## Core workflow
-1. Give a notebook a name and an optional cover photo.
-2. When a page seems worth finding again, photograph it and enter its page number.
-3. Add a title and two or three keywords.
-4. Search across notebooks by topic.
-5. Open a result to see the image and physical location, such as “Blue notebook, page 47.”
-6. Link related pages without moving or rewriting the original notes.
+1. Add songs with estimated durations and optional key or tuning notes.
+2. Mark sections needing attention, such as “bridge entry” or “ending.”
+3. Enter the rehearsal length and reserve time for setup and breaks.
+4. Select full-song runs or focused section blocks until the plan fits.
+5. During rehearsal, advance through blocks and record short outcomes.
+6. Carry unresolved sections into the next session.
 
-Example: Searching “CAN termination” finds three relevant pages across two engineering notebooks.
+Example: A 60-minute booking becomes ten minutes of setup, two focused sections, a short break, and a closing set run.
 
 ## MVP features
-- Notebook records with cover images and optional shelf-location notes.
-- Page entries with manual page numbers, titles, keywords, and photos.
-- Search across all notebooks with notebook and tag filters.
-- Links between related entries.
-- A quick capture queue for adding metadata later.
-- Offline storage and ZIP backup export/import.
+- Song library and ordered setlists.
+- Named problem sections with brief notes.
+- Manual rehearsal blocks with estimated durations.
+- A running total and clear indication when the plan exceeds the available time.
+- Session playback view with optional timer and outcome notes.
+- Offline storage and text export.
 
-Keep handwriting recognition, cloud sync, automatic summaries, and full PDF notebook scanning outside the first release.
+Keep audio recording, automatic music analysis, cloud collaboration, and venue booking outside the first release.
 
 ## Build approach
-Build a Flutter app with SQLite for notebooks, page entries, keywords, and links. Store photos in app-private files and use local text search over user-entered metadata.
+Build a Flutter app with SQLite for songs, sections, rehearsal plans, and outcomes. Store durations as integer seconds and perform all planning locally.
 
-Allow page ranges and unnumbered pages with a custom location label. Warn about duplicate page entries but allow multiple topics on one page. Save a captured photo before opening the metadata form so interruptions do not lose it. Normalize image orientation and generate thumbnails for search results.
-
-Export a versioned JSON manifest with original images. Validate imports and restore links by stable identifiers rather than titles. Start with manual indexing to test whether the retrieval benefit justifies capture effort before investing in OCR.
+Let users arrange their own blocks; offer a simple suggestion that prioritizes selected unresolved sections rather than pretending to optimize musical progress. Distinguish planned time from actual elapsed time. Save after each block so interruptions do not erase rehearsal notes.
 
 ## Validation plan
-Recruit eight frequent paper-note users for a two-week pilot.
-- Ask each person to index five existing pages.
-- After several days, give them a topic-retrieval task using their own notes.
-- Compare retrieval time and success with their usual method.
-- Measure capture effort and metadata fields commonly skipped.
-- Track voluntary indexing of new pages after the initial task.
-- Verify that backup restoration preserves images and cross-links.
+Pilot with four bands over three rehearsals each. Observe planning time, how often the group follows the plan, and whether unresolved sections remain easy to find. Ask whether the app reduces discussion overhead without making rehearsal feel rigid.
 
-Continue if five participants voluntarily add new entries and can retrieve a useful note faster than before. Treat the small study as a usability signal rather than proof of productivity gains.
+Continue if three bands choose to plan another rehearsal voluntarily and identify a concrete problem section they addressed using the app.
 
 ## Biggest risk
-Users may index pages inconsistently or choose keywords they do not remember later. Make titles searchable, show recently used tags, and allow quick capture followed by optional cleanup. If logging becomes burdensome, focus on a small set of high-value pages rather than complete notebook coverage.
+A detailed plan may be too rigid for a creative group. Allow instant reorder, skip, and extension of blocks, and make the timer optional. Test whether the plan supports discussion rather than becoming another obligation.
 
 ## Possible business model
-Free for a few notebooks, with a one-time upgrade for unlimited notebooks and printable topic indexes. Keep basic search and backup export available to everyone.
+A free core planner with a one-time upgrade for multiple band libraries and reusable rehearsal templates. Keep text export available to everyone.
