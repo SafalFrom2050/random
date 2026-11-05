@@ -49,6 +49,21 @@ Pilot with four bands over three rehearsals each. Observe planning time, how oft
 
 Continue if three bands choose to plan another rehearsal voluntarily and identify a concrete problem section they addressed using the app.
 
+### Pilot measurements
+- Record minutes spent preparing a plan, with a target of under five minutes after initial song entry.
+- Record manual overrides and why they occurred; frequent overrides may indicate that block budgets are too coarse.
+- Check whether at least one unresolved section is deliberately revisited at the following rehearsal.
+- Ask every group member whether the plan helped, rather than relying only on the organizer.
+- Compare with each band's usual process; treat the small sample as directional evidence, not proof of improved musicianship.
+
+### Release acceptance checks
+- A plan containing setup, a break, and repeated songs sums durations correctly.
+- Reordering or skipping a block preserves its existing notes.
+- Backgrounding and resuming never silently adds rehearsal time.
+- Editing or archiving a song leaves completed session snapshots intact.
+- Export/import round trips preserve section links and outcomes.
+- If the plan exceeds the booking length, the overrun remains visible until the user adjusts it.
+
 ## Biggest risk
 A detailed plan may be too rigid for a creative group. Allow instant reorder, skip, and extension of blocks, and make the timer optional. Test whether the plan supports discussion rather than becoming another obligation.
 
