@@ -33,3 +33,6 @@ A record is useless if it points to the wrong tile. Make missing and uncertain m
 
 ## Tile reconciliation
 Use an ID marked on the tile with the studio's established method and mirror it on the paper worksheet. Treat grid position as a temporary staging aid because tiles may move. After firing, match by the physical ID. If an ID cannot be read, save a photo as unmatched and keep it out of repeat-test suggestions until a person confirms the match.
+
+## Repeat tests
+Create a new test from an existing record with a fresh ID and a field for the intended change, such as trying one additional coat. Show both tiles alongside their respective firing and clay details. Flag when more than one field changed, so the comparison does not imply that one change caused the result.
