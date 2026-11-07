@@ -36,3 +36,6 @@ Use an ID marked on the tile with the studio's established method and mirror it 
 
 ## Repeat tests
 Create a new test from an existing record with a fresh ID and a field for the intended change, such as trying one additional coat. Show both tiles alongside their respective firing and clay details. Flag when more than one field changed, so the comparison does not imply that one change caused the result.
+
+## Storage and recovery
+Use stable internal IDs and enforce unique human-readable tile IDs within each batch. Store thumbnails separately from originals. Package exports as a versioned manifest and images; validate references and reject duplicate IDs before importing. Preserve both records when users explicitly import a conflicting batch as a copy, with a new batch identifier.
