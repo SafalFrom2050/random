@@ -30,3 +30,6 @@ Pilot with two community studios for two firing cycles. Compare how quickly part
 
 ## Biggest risk
 A record is useless if it points to the wrong tile. Make missing and uncertain matches explicit and keep identity confirmation separate from appearance notes.
+
+## Tile reconciliation
+Use an ID marked on the tile with the studio's established method and mirror it on the paper worksheet. Treat grid position as a temporary staging aid because tiles may move. After firing, match by the physical ID. If an ID cannot be read, save a photo as unmatched and keep it out of repeat-test suggestions until a person confirms the match.
