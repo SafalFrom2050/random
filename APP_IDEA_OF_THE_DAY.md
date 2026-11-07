@@ -39,3 +39,6 @@ Create a new test from an existing record with a fresh ID and a field for the in
 
 ## Storage and recovery
 Use stable internal IDs and enforce unique human-readable tile IDs within each batch. Store thumbnails separately from originals. Package exports as a versioned manifest and images; validate references and reject duplicate IDs before importing. Preserve both records when users explicitly import a conflicting batch as a copy, with a new batch identifier.
+
+## Pilot success criteria
+Ask six participants to log one batch each and, after the next firing, recover three test records using physical tile IDs. Compare median lookup time against their usual notebook method and count incorrect matches separately from unresolved ones. Aim for a 30% reduction in median lookup time with no increase in incorrect matches. Include one unreadable ID in a controlled exercise and verify that it stays unmatched. Before extending the pilot, restore one exported batch on a second device and verify that the photos, notes, and repeat-test links survive.
