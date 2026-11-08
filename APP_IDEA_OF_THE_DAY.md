@@ -29,3 +29,9 @@ Recruit three venues and observe first-time arrivals. Compare time from map pin 
 
 ## Biggest risk
 A stale photo can send someone to the wrong entrance. Give every guide a visible last-reviewed date and let hosts revise or revoke it quickly.
+
+## Route alternatives and offline behavior
+Allow authors to add an optional alternate route, with the reason stated at the start (for example, “Avoid the stairs”). Have hosts walk each route before publishing, label any opening-hour restrictions, and provide text directions even when a photo fails to load. Downloading a guide requires a connection; once downloaded, show its version and date. Revocation blocks future online loads, but cannot erase copies already cached or printed. Strip location metadata from uploads and prompt authors to crop faces and access codes.
+
+## Pilot decision
+At each venue, alternate between standard instructions and the guide across at least ten first-time arrivals. Start timing at the same landmark, record wrong entrances and calls separately, and ask visitors who did not open the guide why. Continue if at least two venues see faster median arrival with no increase in wrong entrances. Test one cached route in airplane mode before inviting visitors.
