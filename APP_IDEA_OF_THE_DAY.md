@@ -29,3 +29,8 @@ Have six participants document two scenes over three visits. Compare how long th
 
 ## Biggest risk
 Changes in light, lens, or viewpoint can make a close match impossible. Let users hide the overlay at any time, and show the original photos so people can judge the comparison for themselves.
+
+## Alignment and field test details
+Lock the reference aspect ratio within each series and show a reference crop preview before the first shot. Save the original captures separately from comparison exports. During capture, show a lens-change hint when the reference lens is unavailable; let users proceed and tag the result as approximate. Keep the reference fixed unless the user explicitly starts a new series, since silently swapping it makes a long sequence drift.
+
+For the pilot, use one indoor scene and one outdoor scene per participant. Alternate which camera workflow they try first. Measure framing error as the average displacement of two fixed landmarks, divided by the image diagonal; report failed or skipped attempts separately. Aim for at least 25% lower median displacement with no more than 15 seconds of extra setup per shot. If outdoor failures dominate, start with indoor projects and revise the overlay before expanding.
