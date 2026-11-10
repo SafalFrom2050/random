@@ -42,3 +42,13 @@ Use separate tokens for viewing a printable guide and submitting actions. Warn o
 
 ## Connection recovery
 Keep an unsent note visible in the current browser session and label it “not submitted.” Use a client-generated request ID so retrying after a connection drop does not create duplicate actions. Show the server-confirmed timestamp only after submission succeeds.
+
+## Pilot measurements and release checks
+- Aim for an owner to prepare five plant cards in under ten minutes.
+- Ask sitters to identify all five plants using the guide before the trip; record mismatches separately from unresolved cards.
+- Check whether action records answer the owner's follow-up questions without another chat.
+- Continue if four pairs voluntarily reuse the guide and no sitter mistakes a scheduled visit for a confirmed action.
+- Test revocation, expiration, duplicate submission, and owner corrections before the pilot.
+- After a simulated network drop, verify that retries save one action and that unsent notes never appear confirmed.
+
+Treat the small pilot as a usability study. Do not infer that the app improves plant health from a few short trips.
