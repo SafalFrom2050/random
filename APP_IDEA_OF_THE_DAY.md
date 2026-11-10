@@ -34,3 +34,11 @@ Pilot with six owner-sitter pairs during actual short trips. Observe setup effor
 
 ## Biggest risk
 Instructions may be ambiguous or outdated. Require the owner to review every card before sharing, show the review date, and make uncertainty easy to flag. Treat care details as owner-provided instructions, not expert recommendations.
+
+## Visit records and access boundaries
+Separate scheduled visits from recorded actions. Checking a card does not imply watering: the sitter chooses an action label or writes a note, and may record “checked only” or “could not identify.” Corrections retain the earlier text with a correction timestamp so the owner can see what changed.
+
+Use separate tokens for viewing a printable guide and submitting actions. Warn owners that anyone holding a live token can use it, and let them rotate tokens when sharing changes. Avoid including door codes or home-entry instructions in plant cards. Expiration blocks future access but cannot withdraw printed copies.
+
+## Connection recovery
+Keep an unsent note visible in the current browser session and label it “not submitted.” Use a client-generated request ID so retrying after a connection drop does not create duplicate actions. Show the server-confirmed timestamp only after submission succeeds.
