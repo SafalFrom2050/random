@@ -1,36 +1,36 @@
-# App Idea of the Day: Same Frame
-Date: 2026-11-10 (Japan)
+# App Idea of the Day: Plant Sitter Pass
+Date: 2026-11-11 (Japan)
 
 ## Concept
-A camera app that overlays a previous photo as a guide so you can photograph the same scene from the same angle over time.
+A temporary handover guide for looking after someone else's houseplants. Owners create photo cards with their own instructions; sitters record visits and flag questions in one place.
 
 ## Target users
-Gardeners documenting a season, DIY builders tracking a project, and photographers making long-term visual studies.
+Houseplant owners going away and friends or neighbors helping them.
 
 ## Problem
-A before-and-after comparison can be hard to read when framing and distance change. Finding an old photo and switching back and forth with the camera slows down each repeat shot.
+A chat message saying “water the plants” leaves too much ambiguity. Similar pots are easy to confuse, and owners cannot tell which instructions need clarification until they are away.
 
 ## Core workflow
-1. Create a series and take its reference photo.
-2. When returning, open that series and adjust the opacity of the reference over the camera preview.
-3. Line up two stationary features, such as the corners of a planter, and take a new shot.
-4. Compare any two dates with a swipe and export the pair as a labeled image.
+1. Photograph each plant in its usual position and give it a recognizable label.
+2. Add owner-written care instructions and optional visit dates.
+3. Preview the guide with the sitter before departure.
+4. Share a temporary guide link.
+5. The sitter opens each card, records what they actually did, and flags uncertainty rather than guessing.
+6. The owner closes the handover when they return.
 
 ## MVP features
-- Local series with a reference photo, dates, and optional notes.
-- Adjustable preview overlay and a grid.
-- Date picker, swipe comparison, and labeled image export.
+- Photo cards with location descriptions and manual instructions.
+- Planned visits and action notes with timestamps.
+- A question flag and owner response thread.
+- Expiring access links and a printable guide.
+
+Keep plant diagnosis, automated watering advice, device integrations, and a sitter marketplace outside the MVP.
 
 ## Build approach
-Build a phone app with Flutter, app-private photo storage, and SQLite for series metadata. Preserve capture orientation and normalize the preview and reference to the same visible crop. Start with manual alignment.
+Build a responsive web app with an authenticated owner editor, a small database, and object storage for compressed photos. A random access token grants access only to one handover; owners can revoke it. Require connectivity to submit visit records and clearly show whether a note has been saved.
 
 ## Validation plan
-Have six participants document two scenes over three visits. Compare how long they take and how consistently they frame the scene with the overlay versus the default camera.
+Pilot with six owner-sitter pairs during actual short trips. Observe setup effort, questions asked, plant identification mistakes, and voluntary reuse. Compare against each pair's usual chat instructions.
 
 ## Biggest risk
-Changes in light, lens, or viewpoint can make a close match impossible. Let users hide the overlay at any time, and show the original photos so people can judge the comparison for themselves.
-
-## Alignment and field test details
-Lock the reference aspect ratio within each series and show a reference crop preview before the first shot. Save the original captures separately from comparison exports. During capture, show a lens-change hint when the reference lens is unavailable; let users proceed and tag the result as approximate. Keep the reference fixed unless the user explicitly starts a new series, since silently swapping it makes a long sequence drift.
-
-For the pilot, use one indoor scene and one outdoor scene per participant. Alternate which camera workflow they try first. Measure framing error as the average displacement of two fixed landmarks, divided by the image diagonal; report failed or skipped attempts separately. Aim for at least 25% lower median displacement with no more than 15 seconds of extra setup per shot. If outdoor failures dominate, start with indoor projects and revise the overlay before expanding.
+Instructions may be ambiguous or outdated. Require the owner to review every card before sharing, show the review date, and make uncertainty easy to flag. Treat care details as owner-provided instructions, not expert recommendations.
