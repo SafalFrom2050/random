@@ -32,3 +32,6 @@ People may take items without updating the catalog. Show when an item was last s
 
 ## Reconciliation rules
 Keep “listed,” “reported taken,” and “confirmed removed” separate. Hide reported items from the available view while showing them in the steward queue. A steward can restore an item after seeing it in person. After seven days without a check, move the item to an “availability uncertain” view; do not silently declare it gone.
+
+## At-shelf interaction
+Print short, shelf-specific IDs in large text and include the shelf QR on the sign, so visitors need only scan once. The take form shows the matching title and photo before confirmation. Offer a plain URL on the sign and keep the physical shelf usable by people without phones; steward checks cover those pickups.
