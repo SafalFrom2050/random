@@ -1,54 +1,31 @@
-# App Idea of the Day: Plant Sitter Pass
-Date: 2026-11-11 (Japan)
+# App Idea of the Day: Swap Shelf
+Date: 2026-11-12 (Japan)
 
 ## Concept
-A temporary handover guide for looking after someone else's houseplants. Owners create photo cards with their own instructions; sitters record visits and flag questions in one place.
+A QR-based catalog for a physical free shelf. Visitors can see what is available or mark an item taken without installing an app.
 
 ## Target users
-Houseplant owners going away and friends or neighbors helping them.
+Community centers, coworking spaces, and apartment buildings that run a staffed or volunteer-managed giveaway shelf.
 
 ## Problem
-A chat message saying “water the plants” leaves too much ambiguity. Similar pots are easy to confuse, and owners cannot tell which instructions need clarification until they are away.
+A shelf can look empty online while being full in person, or advertise items that disappeared days ago. Volunteers have little time to reconcile a spreadsheet.
 
 ## Core workflow
-1. Photograph each plant in its usual position and give it a recognizable label.
-2. Add owner-written care instructions and optional visit dates.
-3. Preview the guide with the sitter before departure.
-4. Share a temporary guide link.
-5. The sitter opens each card, records what they actually did, and flags uncertainty rather than guessing.
-6. The owner closes the handover when they return.
+1. A steward prints a shelf QR code and adds a few items with short IDs and optional photos.
+2. A visitor checks the catalog, finds an item on the shelf, and taps “I took this” using its label.
+3. The steward resolves mismatches and clears stale entries during the next shelf check.
 
 ## MVP features
-- Photo cards with location descriptions and manual instructions.
-- Planned visits and action notes with timestamps.
-- A question flag and owner response thread.
-- Expiring access links and a printable guide.
-
-Keep plant diagnosis, automated watering advice, device integrations, and a sitter marketplace outside the MVP.
+- Phone-friendly catalog with item IDs, photos, and last-checked dates.
+- Account-free visitor view and a quick take form.
+- Steward-only listing and reconciliation controls.
+- Printable shelf sign and item labels.
 
 ## Build approach
-Build a responsive web app with an authenticated owner editor, a small database, and object storage for compressed photos. A random access token grants access only to one handover; owners can revoke it. Require connectivity to submit visit records and clearly show whether a note has been saved.
+Use a mobile web app with a relational database for shelves, item states, and events. Store compressed images separately. Require sign-in for stewards and scope each catalog to a single shelf.
 
 ## Validation plan
-Pilot with six owner-sitter pairs during actual short trips. Observe setup effort, questions asked, plant identification mistakes, and voluntary reuse. Compare against each pair's usual chat instructions.
+Pilot with two existing shelves for three weeks. Compare catalog accuracy and the time stewards spend maintaining it against their previous process.
 
 ## Biggest risk
-Instructions may be ambiguous or outdated. Require the owner to review every card before sharing, show the review date, and make uncertainty easy to flag. Treat care details as owner-provided instructions, not expert recommendations.
-
-## Visit records and access boundaries
-Separate scheduled visits from recorded actions. Checking a card does not imply watering: the sitter chooses an action label or writes a note, and may record “checked only” or “could not identify.” Corrections retain the earlier text with a correction timestamp so the owner can see what changed.
-
-Use separate tokens for viewing a printable guide and submitting actions. Warn owners that anyone holding a live token can use it, and let them rotate tokens when sharing changes. Avoid including door codes or home-entry instructions in plant cards. Expiration blocks future access but cannot withdraw printed copies.
-
-## Connection recovery
-Keep an unsent note visible in the current browser session and label it “not submitted.” Use a client-generated request ID so retrying after a connection drop does not create duplicate actions. Show the server-confirmed timestamp only after submission succeeds.
-
-## Pilot measurements and release checks
-- Aim for an owner to prepare five plant cards in under ten minutes.
-- Ask sitters to identify all five plants using the guide before the trip; record mismatches separately from unresolved cards.
-- Check whether action records answer the owner's follow-up questions without another chat.
-- Continue if four pairs voluntarily reuse the guide and no sitter mistakes a scheduled visit for a confirmed action.
-- Test revocation, expiration, duplicate submission, and owner corrections before the pilot.
-- After a simulated network drop, verify that retries save one action and that unsent notes never appear confirmed.
-
-Treat the small pilot as a usability study. Do not infer that the app improves plant health from a few short trips.
+People may take items without updating the catalog. Show when an item was last seen and give stewards a fast way to reconcile multiple entries in one visit.
