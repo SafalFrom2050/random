@@ -38,3 +38,6 @@ Print short, shelf-specific IDs in large text and include the shelf QR on the si
 
 ## Data and permissions
 Record the visitor action and item state change in one database transaction. Make repeat submissions for the same item idempotent until a steward restores it, at which point old forms must refresh before submitting. Keep take reports anonymous and rate-limit them per shelf. Only stewards can restore items or edit listings; don't collect pickup names, addresses, or contact details.
+
+## Pilot decision
+During the pilot, audit ten randomly selected item statuses per shelf each week against physical inventory. Record false availability and false removal separately, alongside minutes spent on each steward check. Continue only if both shelves reach at least 85% status agreement and the median check takes under five minutes. If accuracy falls short, test a clearer pickup sign before adding reservations or notifications.
