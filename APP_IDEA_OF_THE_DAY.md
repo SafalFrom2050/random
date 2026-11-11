@@ -35,3 +35,6 @@ Keep “listed,” “reported taken,” and “confirmed removed” separate. H
 
 ## At-shelf interaction
 Print short, shelf-specific IDs in large text and include the shelf QR on the sign, so visitors need only scan once. The take form shows the matching title and photo before confirmation. Offer a plain URL on the sign and keep the physical shelf usable by people without phones; steward checks cover those pickups.
+
+## Data and permissions
+Record the visitor action and item state change in one database transaction. Make repeat submissions for the same item idempotent until a steward restores it, at which point old forms must refresh before submitting. Keep take reports anonymous and rate-limit them per shelf. Only stewards can restore items or edit listings; don't collect pickup names, addresses, or contact details.
