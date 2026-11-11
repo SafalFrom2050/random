@@ -29,3 +29,6 @@ Pilot with two existing shelves for three weeks. Compare catalog accuracy and th
 
 ## Biggest risk
 People may take items without updating the catalog. Show when an item was last seen and give stewards a fast way to reconcile multiple entries in one visit.
+
+## Reconciliation rules
+Keep “listed,” “reported taken,” and “confirmed removed” separate. Hide reported items from the available view while showing them in the steward queue. A steward can restore an item after seeing it in person. After seven days without a check, move the item to an “availability uncertain” view; do not silently declare it gone.
