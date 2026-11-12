@@ -29,3 +29,6 @@ Compare one baseline session with two pilot sessions at the same venue. Track ar
 
 ## Biggest risk
 Intake could add more work than it saves. Start with a capped queue and templates for common requests; reduce the intake fields if volunteers still have to ask the same follow-up questions.
+
+## Triage and arrival
+Each reply has one of three outcomes: “bring it,” “need one detail,” or “outside this session’s scope.” A bring-it reply names the item, any detached parts, and any supplies the visitor already has; it does not promise a repair or reserve a time slot. For example, for a backpack zipper, ask for the backpack and any loose slider or pull, and tell the visitor to wait before buying replacements. Close requests 48 hours before the event and show the cutoff before anyone starts the form.
