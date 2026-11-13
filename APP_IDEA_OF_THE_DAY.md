@@ -28,3 +28,6 @@ Shadow two morning shifts, then test with one bakery for a week. Compare unatten
 
 ## Biggest risk
 A busy team may fall back to personal timers if creating a shared timer is slower. Put the common presets on the first screen and test the flow on the actual prep bench.
+
+## Batch handoff
+Show a location and verb on each card: “Rack B, tray 2 — check proof.” Claiming a card adds initials but leaves it visible until someone completes it. A baker can release a claim if pulled away; after two minutes, flag the claim as needing a check rather than assuming the action happened.
