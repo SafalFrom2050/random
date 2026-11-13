@@ -31,3 +31,6 @@ A busy team may fall back to personal timers if creating a shared timer is slowe
 
 ## Batch handoff
 Show a location and verb on each card: “Rack B, tray 2 — check proof.” Claiming a card adds initials but leaves it visible until someone completes it. A baker can release a claim if pulled away; after two minutes, flag the claim as needing a check rather than assuming the action happened.
+
+## Pilot scope
+Start with dough rest and proof checks only. Use the bakery's existing oven timers independently during the pilot. Put the wall board where both benches can see it, order due cards by oldest deadline, and pair every color cue with a written status. Make the board readable without sound in a noisy kitchen.
