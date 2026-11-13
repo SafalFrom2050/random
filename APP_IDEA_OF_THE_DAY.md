@@ -1,37 +1,30 @@
-# App Idea of the Day: Mend Match
-Date: 2026-11-13 (Japan)
+# App Idea of the Day: Counter Cue
+Date: 2026-11-14 (Japan)
 
 ## Concept
-A browser tool that lets repair cafés tell visitors what to bring before they show up with a broken item.
+A shared prep timer for small bakeries. A wall tablet shows what needs attention next and which baker has picked it up.
 
 ## Target users
-Volunteer organizers at monthly repair cafés and first-time visitors bringing clothing, bags, or simple household objects.
+Two- to five-person bakery teams that juggle several doughs and trays during the morning shift.
 
 ## Problem
-A volunteer may be able to fix a backpack zipper but need the original slider, or repair a loose chair only if the visitor brings the missing hardware. Generic event pages leave those details to last-minute messages or wasted trips.
+A phone timer can ring in a baker's pocket while someone else stands next to the oven. Even when the alarm is heard, a label like “timer 2” doesn't tell the team which tray to check.
 
 ## Core workflow
-1. The organizer publishes the next session and selects the repair categories it can handle.
-2. A visitor chooses a category, describes the problem, and optionally adds a photo.
-3. The organizer replies with a short bring list or explains why the item is outside the session’s scope. The visitor can open the reply from a private link.
+1. A baker starts a labeled timer from a preset and adds the tray or bench location.
+2. The wall display moves the due timer to the top with its label and next action.
+3. A teammate claims the task, checks the batch, and marks it done or sets a short recheck.
 
 ## MVP features
-- Session page with supported categories and a request cutoff.
-- Mobile intake form and private reply page.
-- Volunteer queue with reusable bring-list templates and editable replies.
-- Confirmation that the visitor has read the instructions.
+- Reusable duration and action presets.
+- Shared board with due, claimed, and completed states.
+- One-tap recheck and a visible record of who handled each batch.
 
 ## Build approach
-Use a mobile web app with a relational database for sessions, requests, and replies. Store photos privately and email a reply link when a volunteer responds. Keep the first pilot to one venue and three repair categories.
+Build a mobile web interface and a large-text tablet board backed by a database. Save absolute due times so the countdown can recover after a refresh.
 
 ## Validation plan
-Compare one baseline session with two pilot sessions at the same venue. Track arrivals missing essential items and how many minutes volunteers spend answering questions before the event.
+Shadow two morning shifts, then test with one bakery for a week. Compare unattended alarms and time spent asking which batch a timer belongs to.
 
 ## Biggest risk
-Intake could add more work than it saves. Start with a capped queue and templates for common requests; reduce the intake fields if volunteers still have to ask the same follow-up questions.
-
-## Triage and arrival
-Each reply has one of three outcomes: “bring it,” “need one detail,” or “outside this session’s scope.” A bring-it reply names the item, any detached parts, and any supplies the visitor already has; it does not promise a repair or reserve a time slot. For example, for a backpack zipper, ask for the backpack and any loose slider or pull, and tell the visitor to wait before buying replacements. Close requests 48 hours before the event and show the cutoff before anyone starts the form.
-
-## Pilot decision
-At check-in, ask each visitor in a pilot category whether they brought everything the volunteer needed for an initial assessment. Log the answer and whether they used Mend Match; count unanswered requests separately. Continue if missing-item arrivals in those categories fall by at least 25% relative to baseline, at least 80% of requests receive a reply before the session, and median volunteer handling time stays below two minutes per request. Treat fewer than 20 eligible arrivals across the pilot as inconclusive and run one more session before deciding.
+A busy team may fall back to personal timers if creating a shared timer is slower. Put the common presets on the first screen and test the flow on the actual prep bench.
