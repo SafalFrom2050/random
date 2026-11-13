@@ -34,3 +34,6 @@ Show a location and verb on each card: “Rack B, tray 2 — check proof.” Cla
 
 ## Pilot scope
 Start with dough rest and proof checks only. Use the bakery's existing oven timers independently during the pilot. Put the wall board where both benches can see it, order due cards by oldest deadline, and pair every color cue with a written status. Make the board readable without sound in a noisy kitchen.
+
+## Synchronization and outages
+The server calculates the due time from the preset when a timer starts. Use an atomic update to claim an unclaimed card so simultaneous taps cannot create two owners. If the board loses its connection, keep showing the last known timers with an offline banner, disable edits, and tell the crew to use local timers until the board reconnects and refreshes.
