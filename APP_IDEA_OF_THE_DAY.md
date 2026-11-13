@@ -37,3 +37,6 @@ Start with dough rest and proof checks only. Use the bakery's existing oven time
 
 ## Synchronization and outages
 The server calculates the due time from the preset when a timer starts. Use an atomic update to claim an unclaimed card so simultaneous taps cannot create two owners. If the board loses its connection, keep showing the last known timers with an offline banner, disable edits, and tell the crew to use local timers until the board reconnects and refreshes.
+
+## Pilot decision
+A shift lead records when each due batch gets its first check and tallies times someone asks which timer belongs to which batch. Continue if the share of batches unchecked after two minutes falls by at least 25% relative to baseline and median timer setup takes five seconds or less. If either period includes fewer than 30 eligible timers, extend observations before deciding.
