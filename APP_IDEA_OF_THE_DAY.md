@@ -1,42 +1,31 @@
-# App Idea of the Day: Counter Cue
-Date: 2026-11-14 (Japan)
+# App Idea of the Day: Exit Pocket
+Date: 2026-11-16 (Japan)
 
 ## Concept
-A shared prep timer for small bakeries. A wall tablet shows what needs attention next and which baker has picked it up.
+A mobile checklist that helps renters remember which fixtures, keys, and accessories to return when moving out.
 
 ## Target users
-Two- to five-person bakery teams that juggle several doughs and trays during the morning shift.
+Renters preparing for their first move-out inspection, especially those who have stored original fixtures or swapped them for their own.
 
 ## Problem
-A phone timer can ring in a baker's pocket while someone else stands next to the oven. Even when the alarm is heard, a label like “timer 2” doesn't tell the team which tray to check.
+Original remote controls, shelf pegs, and spare keys can get packed into the wrong box. A generic moving checklist can't tell renters what came with their particular apartment or where they put it.
 
 ## Core workflow
-1. A baker starts a labeled timer from a preset and adds the tray or bench location.
-2. The wall display moves the due timer to the top with its label and next action.
-3. A teammate claims the task, checks the batch, and marks it done or sets a short recheck.
+1. At move-in or while packing, make a room-by-room list of items to hand back.
+2. Add a photo, expected quantity, and current storage spot for each item.
+3. Before inspection, open the handover view, reconcile quantities, and review anything still missing.
 
 ## MVP features
-- Reusable duration and action presets.
-- Shared board with due, claimed, and completed states.
-- One-tap recheck and a visible record of who handled each batch.
+- Room templates and editable item cards.
+- Optional photo and storage note per card.
+- Handover view grouped by missing, ready, and handed back.
+- Printable summary that works without the app.
 
 ## Build approach
-Build a mobile web interface and a large-text tablet board backed by a database. Save absolute due times so the countdown can recover after a refresh.
+Use Flutter and SQLite. Keep records on the device, store compressed photos in app-private storage, and generate the printable summary locally.
 
 ## Validation plan
-Shadow two morning shifts, then test with one bakery for a week. Compare unattended alarms and time spent asking which batch a timer belongs to.
+Recruit renters with inspections in the next month. Observe a packing session and a handover rehearsal, then ask which items they would have missed using their usual notes.
 
 ## Biggest risk
-A busy team may fall back to personal timers if creating a shared timer is slower. Put the common presets on the first screen and test the flow on the actual prep bench.
-
-## Batch handoff
-Show a location and verb on each card: “Rack B, tray 2 — check proof.” Claiming a card adds initials but leaves it visible until someone completes it. A baker can release a claim if pulled away; after two minutes, flag the claim as needing a check rather than assuming the action happened.
-
-## Pilot scope
-Start with dough rest and proof checks only. Use the bakery's existing oven timers independently during the pilot. Put the wall board where both benches can see it, order due cards by oldest deadline, and pair every color cue with a written status. Make the board readable without sound in a noisy kitchen.
-
-## Synchronization and outages
-The server calculates the due time from the preset when a timer starts. Use an atomic update to claim an unclaimed card so simultaneous taps cannot create two owners. If the board loses its connection, keep showing the last known timers with an offline banner, disable edits, and tell the crew to use local timers until the board reconnects and refreshes.
-
-## Pilot decision
-A shift lead records when each due batch gets its first check and tallies times someone asks which timer belongs to which batch. Continue if the share of batches unchecked after two minutes falls by at least 25% relative to baseline and median timer setup takes five seconds or less. If either period includes fewer than 30 eligible timers, extend observations before deciding.
+The app may feel useful only if someone starts using it months before moving out. Test a packing-week workflow that builds the list from an existing inventory and a quick walk-through.
