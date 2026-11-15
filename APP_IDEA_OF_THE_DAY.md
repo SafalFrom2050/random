@@ -29,3 +29,6 @@ Recruit renters with inspections in the next month. Observe a packing session an
 
 ## Biggest risk
 The app may feel useful only if someone starts using it months before moving out. Test a packing-week workflow that builds the list from an existing inventory and a quick walk-through.
+
+## Quantity and handover rules
+Allow an expected quantity to be unknown until the renter checks the inventory. For a set of three keys where only two are found, show “2 of 3 ready” and keep the missing key visible. Let renters record “handed back” separately after the inspection so a packed item never looks like it has already been returned. Default the printable summary to item names and counts; exclude photos, key markings, and storage locations.
