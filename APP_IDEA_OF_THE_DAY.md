@@ -32,3 +32,6 @@ The app may feel useful only if someone starts using it months before moving out
 
 ## Quantity and handover rules
 Allow an expected quantity to be unknown until the renter checks the inventory. For a set of three keys where only two are found, show “2 of 3 ready” and keep the missing key visible. Let renters record “handed back” separately after the inspection so a packed item never looks like it has already been returned. Default the printable summary to item names and counts; exclude photos, key markings, and storage locations.
+
+## Pilot decision
+Recruit ten renters who have not used the app before and ask each to make a list using their usual method. Then give them ten minutes to try the checklist and compare the two lists against their own move-in inventory or handover instructions. Continue if at least six renters find a confirmed omission or quantity mismatch and at least eight can locate their unresolved items in under 30 seconds. Record omissions suggested by the template separately from those found during the room walk-through to see which part earns its place.
