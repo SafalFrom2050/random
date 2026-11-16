@@ -28,3 +28,6 @@ Watch eight new zine makers print and fold a sample booklet. Compare first-attem
 
 ## Biggest risk
 Printer drivers can rotate, scale, or reorder sheets in ways the app cannot see. Ask users to verify one test sheet before printing a whole run.
+
+## Sheet layout
+For an eight-page booklet, the outside sheet pairs 8 with 1 on the front and 2 with 7 on the back; the inside sheet pairs 6 with 3 and 4 with 5. Default padding goes immediately before the back cover. Limit the pilot to 24 pages and portrait source PDFs. Show a crop warning when the chosen margins would cut content and offer fit-to-page as the default.
