@@ -34,3 +34,6 @@ For an eight-page booklet, the outside sheet pairs 8 with 1 on the front and 2 w
 
 ## Printer calibration
 Put a large directional arrow and distinct front and back labels on the calibration pages. After folding the test sheet, ask whether both arrows point up and the front label is on the outside. If the back is upside down, prompt the user to switch the duplex flip edge and reprint only the test. Leave manual paper reinsertion out of the first release and explain this before import.
+
+## Pilot decision
+Give four participants the workshop's usual instructions and four Page Pair for their first attempt, using equally sized source PDFs. Count a booklet as correct only if all pages are upright and in reading order, and track calibration sheets separately from misprints. Advance to a larger trial if at least three of four Page Pair users finish correctly without facilitator intervention and the group uses fewer wasted sheets than the comparison group. Record printer model and driver settings for each failure.
