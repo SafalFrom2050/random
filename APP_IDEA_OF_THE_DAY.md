@@ -31,3 +31,6 @@ Printer drivers can rotate, scale, or reorder sheets in ways the app cannot see.
 
 ## Sheet layout
 For an eight-page booklet, the outside sheet pairs 8 with 1 on the front and 2 with 7 on the back; the inside sheet pairs 6 with 3 and 4 with 5. Default padding goes immediately before the back cover. Limit the pilot to 24 pages and portrait source PDFs. Show a crop warning when the chosen margins would cut content and offer fit-to-page as the default.
+
+## Printer calibration
+Put a large directional arrow and distinct front and back labels on the calibration pages. After folding the test sheet, ask whether both arrows point up and the front label is on the outside. If the back is upside down, prompt the user to switch the duplex flip edge and reprint only the test. Leave manual paper reinsertion out of the first release and explain this before import.
