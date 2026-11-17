@@ -32,3 +32,6 @@ Writing a checkpoint may interrupt the relaxing part of the hobby. Keep it to th
 
 ## Checkpoint rules
 Label the row explicitly as “last completed,” and store the next action separately: “Section B, row 12 completed; next: row 13 increase.” When a repeat restarts, create a new repeat number within that section rather than resetting an unlabeled counter. A photo supports the written checkpoint but never automatically determines the stitch or row count.
+
+## Recovery and storage
+Save each checkpoint atomically with its section and repeat number. Keep the previous five checkpoints per project so a mistaken tap can be undone without reconstructing the session. Export a ZIP containing a readable Markdown summary, structured project data, and optional photos; importing it creates a new project to avoid overwriting newer work. Show the timestamp on the resume card so an old checkpoint is easier to notice.
