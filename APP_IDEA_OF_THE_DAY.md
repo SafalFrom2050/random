@@ -35,3 +35,6 @@ Label the row explicitly as “last completed,” and store the next action sepa
 
 ## Recovery and storage
 Save each checkpoint atomically with its section and repeat number. Keep the previous five checkpoints per project so a mistaken tap can be undone without reconstructing the session. Export a ZIP containing a readable Markdown summary, structured project data, and optional photos; importing it creates a new project to avoid overwriting newer work. Show the timestamp on the resume card so an old checkpoint is easier to notice.
+
+## Pilot decision
+For each participant, time one return after a gap of at least two days using their normal notes and two comparable returns using Thread Trail. Record whether they resume correctly without inspecting earlier rows, alongside checkpoint entry time. Continue if at least six of eight participants resume at least 30% faster and median checkpoint entry stays under 15 seconds. Log incorrect resumes separately and review the field labels before expanding the pilot if any occur.
