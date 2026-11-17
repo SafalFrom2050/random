@@ -29,3 +29,6 @@ Ask eight knitters to use the journal for two weeks across projects they actuall
 
 ## Biggest risk
 Writing a checkpoint may interrupt the relaxing part of the hobby. Keep it to the last completed row and one next action by default, with other details optional.
+
+## Checkpoint rules
+Label the row explicitly as “last completed,” and store the next action separately: “Section B, row 12 completed; next: row 13 increase.” When a repeat restarts, create a new repeat number within that section rather than resetting an unlabeled counter. A photo supports the written checkpoint but never automatically determines the stitch or row count.
