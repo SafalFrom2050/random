@@ -38,3 +38,6 @@ Sort waiting requests by original arrival time and show the oldest first. A clai
 
 ## Scope and data
 Store table numbers rather than customer names. Keep notes focused on the game and the unanswered rule question. Delete completed request notes after seven days while retaining anonymous daily counts for the pilot. Leave food orders, payments, reservations, and customer-facing queue estimates outside the MVP so staff have one simple workflow to learn.
+
+## Pilot decision
+Have an observer record the first request time, first staff response, and any repeated reminder without relying solely on app timestamps. Compare shifts of similar length and occupancy. Advance if repeated reminders per 20 explanation requests fall by at least 30%, median wait does not increase, and median request entry takes under five seconds. If either period has fewer than 40 requests, extend observation before deciding. Review missed logging separately from slow responses.
