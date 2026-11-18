@@ -29,3 +29,6 @@ Observe two baseline shifts and two pilot shifts. Measure requests that need a r
 
 ## Biggest risk
 Staff may forget to log requests during busy periods. Put table buttons on the first screen and let a request start with just a table number.
+
+## Handover rules
+Allow one active explanation request per table. A host claims it atomically so simultaneous taps cannot assign two hosts. Releasing a claim returns the request to waiting while preserving its original arrival time. A follow-up after resolution starts a new request, keeping the previous note available only to staff for the current shift.
