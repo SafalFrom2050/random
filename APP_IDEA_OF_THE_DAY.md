@@ -32,3 +32,6 @@ Staff may forget to log requests during busy periods. Put table buttons on the f
 
 ## Handover rules
 Allow one active explanation request per table. A host claims it atomically so simultaneous taps cannot assign two hosts. Releasing a claim returns the request to waiting while preserving its original arrival time. A follow-up after resolution starts a new request, keeping the previous note available only to staff for the current shift.
+
+## Busy-shift behavior
+Sort waiting requests by original arrival time and show the oldest first. A claim remains visible with the host's initials; after five minutes, ask staff to check its status rather than silently resolving it. Pair all colors with text labels. The board shows a clear disconnected banner and disables edits until it has refreshed after reconnecting.
