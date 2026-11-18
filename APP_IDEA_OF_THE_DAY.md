@@ -35,3 +35,6 @@ Allow one active explanation request per table. A host claims it atomically so s
 
 ## Busy-shift behavior
 Sort waiting requests by original arrival time and show the oldest first. A claim remains visible with the host's initials; after five minutes, ask staff to check its status rather than silently resolving it. Pair all colors with text labels. The board shows a clear disconnected banner and disables edits until it has refreshed after reconnecting.
+
+## Scope and data
+Store table numbers rather than customer names. Keep notes focused on the game and the unanswered rule question. Delete completed request notes after seven days while retaining anonymous daily counts for the pilot. Leave food orders, payments, reservations, and customer-facing queue estimates outside the MVP so staff have one simple workflow to learn.
