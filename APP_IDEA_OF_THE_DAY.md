@@ -1,35 +1,34 @@
-# App Idea of the Day: Box Echo
-Date: 2026-11-20 (Japan)
+# App Idea of the Day: Sound Check Card
+Date: 2026-11-21 (Japan)
 
 ## Concept
-A phone-first catalog that answers “Which box did I put that in?” for seasonal household items, using short box codes and a printable index.
+A photo notebook that helps bands recreate a rehearsal-room setup that sounded good last time.
 
 ## Target users
-People with a few storage bins in closets or rented storage, especially households rotating decorations, camping gear, or winter clothing.
+Amateur bands renting different rehearsal rooms and sharing amplifiers or mixers.
 
 ## Problem
-A label like “winter stuff” becomes useless when contents change. Full inventory apps can demand too much detail, so people stop maintaining them after the first afternoon.
+A useful setup disappears when the room booking ends. Photos of knobs are scattered across chats, and nobody remembers whether a note belongs to the current room, instrument, or song.
 
 ## Core workflow
-1. Create a box with a short code such as B04 and a storage location.
-2. Take one overview photo and add a few searchable item names or nicknames.
-3. Search for an item to see its box code and location.
-4. When removing something, mark it out; when returning it, confirm the box or move it to another box.
+1. Create a room session and add a photo for each relevant piece of equipment.
+2. Attach short notes about the instrument, control positions, and what worked.
+3. At the next booking, open the room's reference card and mark any changes after listening.
 
 ## MVP features
-- Box cards with photos, codes, locations, and free-text item lists.
-- Search across item names, synonyms entered by the owner, and locations.
-- Quick item moves with undo and an explicit “currently out” state.
-- Printable box labels and a plain-text household index.
+- Room and session cards with dated photos.
+- Equipment labels and searchable notes.
+- A pinned reference session per room.
+- A compact offline view for use during setup.
 
 ## Build approach
-Build an offline Flutter app with SQLite and compressed photos in app-private storage. Use stable IDs internally so renaming a box does not break item links. Apply item moves in a single transaction and keep a small undo history. Export a ZIP with structured records, photos, and a readable index for backup; importing creates a separate catalog to avoid silently replacing newer data.
+Build a Flutter app with SQLite and compressed photos in local storage. Use one band member's device in the pilot and export a PDF reference card for others. Keep photos linked to stable equipment records so similarly named amplifiers do not get mixed up.
 
 ## MVP scope
-Start with one device per household and manual item entry. QR labels can open the matching box inside the app, but the large printed code must also work without scanning. Leave automatic photo recognition, purchase prices, and multi-user synchronization for later validation.
+Capture settings manually. Leave automatic knob recognition, audio analysis, and equipment control outside the first release. The reference is a starting point to check by ear rather than a promise that the same positions will sound identical.
 
 ## Validation plan
-Recruit eight households with at least six storage boxes. Time three item-finding tasks using their existing labels, then repeat comparable tasks after a week with Box Echo. Track wrong-box openings and ask participants to record time spent updating changed contents. Continue if at least six households cut median lookup time by 30% and typical updates take under 20 seconds. Treat a household that stops updating as a failed adoption case, even if its initial lookup results were good.
+Recruit four bands with recurring room bookings. Time setup using their usual photos or notes, then two later setups using the reference cards. Record time spent searching for settings and whether anyone used the wrong equipment's reference.
 
 ## Biggest risk
-The catalog can become confidently wrong when items move without an update. Display each box's last-confirmed date, keep “currently out” visible in search, and offer a quick box audit that confirms or edits several entries together. Test whether this is less work than relabeling boxes before expanding the feature set.
+Bands may spend longer documenting than they save at the next rehearsal. Start with one photo and one useful note per device; ask users to save only setups they actually want to repeat.
