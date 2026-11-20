@@ -32,3 +32,9 @@ Recruit four bands with recurring room bookings. Time setup using their usual ph
 
 ## Biggest risk
 Bands may spend longer documenting than they save at the next rehearsal. Start with one photo and one useful note per device; ask users to save only setups they actually want to repeat.
+
+## Comparing setups
+Require a room and equipment label before pinning a reference. Display the date beside every photo and allow “equipment changed” to remove an outdated reference from the default setup view. Save edits as a new session so a band can compare what changed without losing its last useful reference. For example, “vocal mic moved away from drummer” belongs to the room session, while “bass amp EQ” belongs to the labeled amp.
+
+## Pilot decision
+Measure from the first attempt to retrieve a setup note until all participating members say their equipment is ready to play. Compare each band's baseline with the median of its two pilot setups in the same room. Continue if at least three of four bands cut setup time by 20%, no band uses a mismatched equipment reference, and median documentation time stays under two minutes per session. Record changes in equipment or room layout separately; repeat those comparisons rather than attributing their timing to the app.
