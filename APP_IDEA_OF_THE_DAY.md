@@ -33,3 +33,6 @@ Seller measurements may use a different method, making a precise-looking differe
 
 ## Measurement rules
 For shirts, distinguish flat chest width from circumference and label the former “armpit to armpit, laid flat.” Keep sleeve methods separate: shoulder seam to cuff is not interchangeable with center-back to cuff. Display unknown or incompatible fields as “cannot compare,” never as zero. For each compatible field, show candidate minus reference and let the shopper judge it using their own fit preferences; do not produce a universal fit score.
+
+## Pilot decision
+Observe the first measurement session and have participants repeat one measurement to reveal confusing diagrams. Continue to a larger trial if at least six of eight can create a card in under five minutes without help and correctly identify every deliberately incompatible field in a sample comparison. Separately collect at least ten voluntary post-purchase fit reports before judging shopping usefulness. Record fabric stretch and preferred looseness as notes, since equal dimensions alone do not guarantee equal fit; revise the workflow if shoppers mistake the comparison for that guarantee.
