@@ -30,3 +30,6 @@ Recruit eight secondhand shoppers. Ask each to measure a favorite garment and co
 
 ## Biggest risk
 Seller measurements may use a different method, making a precise-looking difference misleading. Show the measuring diagram beside every comparison and let users mark a field as not comparable.
+
+## Measurement rules
+For shirts, distinguish flat chest width from circumference and label the former “armpit to armpit, laid flat.” Keep sleeve methods separate: shoulder seam to cuff is not interchangeable with center-back to cuff. Display unknown or incompatible fields as “cannot compare,” never as zero. For each compatible field, show candidate minus reference and let the shopper judge it using their own fit preferences; do not produce a universal fit score.
