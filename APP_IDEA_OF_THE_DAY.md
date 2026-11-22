@@ -30,3 +30,6 @@ Recruit eight puzzlers who regularly pause projects for at least three days. Com
 
 ## Biggest risk
 Documenting the puzzle may feel like a chore that saves little time. Default to one photo and one next-session goal, making tray notes and markers optional.
+
+## Resume details
+A marker belongs to the exact photo on which it was placed. Replacing the photo creates a new pause card without transferring markers automatically, since the puzzle or camera angle may have changed. Show only the latest card by default, with the previous two available for reference. Give trays short visible codes such as T1; a note can say “T1: blue window candidates” without suggesting the app knows which pieces are correct.
