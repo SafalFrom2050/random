@@ -30,3 +30,6 @@ Pilot with two clubs for four weeks. Compare kit completeness at the next checko
 
 ## Biggest risk
 Detailed checklists may slow down casual lending enough that stewards skip them. Let each club start with only the components that are frequently forgotten and expand based on real misses.
+
+## Return rules
+Snapshot the issued component list at checkout so later template edits do not change what a borrower owes. Record counts returned against that snapshot; a partial return keeps the loan open and the kit unavailable. Allow the steward to resolve a missing component with a dated note, such as “replacement received” or “removed from kit,” before closing the loan. A returned kit remains in a review state until its next-use checklist is confirmed.
