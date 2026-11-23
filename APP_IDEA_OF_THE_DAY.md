@@ -33,3 +33,6 @@ Detailed checklists may slow down casual lending enough that stewards skip them.
 
 ## Return rules
 Snapshot the issued component list at checkout so later template edits do not change what a borrower owes. Record counts returned against that snapshot; a partial return keeps the loan open and the kit unavailable. Allow the steward to resolve a missing component with a dated note, such as “replacement received” or “removed from kit,” before closing the loan. A returned kit remains in a review state until its next-use checklist is confirmed.
+
+## Pilot decision and data
+Store a club member label rather than public contact details, restrict the ledger to stewards, and leave automated borrower messaging outside the MVP. For each club, inspect at least 20 loans in both baseline and pilot periods; extend observation if volume is lower. Continue if missing components discovered at the next checkout fall by at least 30% and median checkout-plus-return recording stays under two minutes per loan. Count skipped checklists separately as adoption failures, and ask stewards whether the incomplete-return queue helped resolve them before adding reservations or member accounts.
