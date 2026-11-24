@@ -1,38 +1,32 @@
-# App Idea of the Day: Borrow Back
-Date: 2026-11-24 (Japan)
+# App Idea of the Day: Queue Draft
+Date: 2026-11-25 (Japan)
 
 ## Concept
-A simple lending ledger for small clubs that tracks borrowed equipment and the accessories that should come back with it.
+A small question board for hands-on workshops that lets participants ask for help without leaving their work or repeatedly raising a hand.
 
 ## Target users
-Photography clubs, school activity groups, and neighborhood hobby groups lending a modest collection of equipment to known members.
+Facilitators running adult craft, software, or electronics workshops with ten to thirty participants and a few roaming helpers.
 
 ## Problem
-A camera may return without its charger, or a board game without its reference cards. A spreadsheet showing only “returned” hides incomplete kits and leaves the next borrower disappointed.
+Helpers cannot easily see who has waited longest or which questions affect several tables. Quiet participants can remain stuck while more visible requests get answered first.
 
 ## Core workflow
-1. A steward defines a kit and its expected components.
-2. At checkout, the steward records the borrower, due date, and components actually issued.
-3. At return, the steward checks components individually and records missing parts.
-4. The kit becomes available after the steward confirms it is ready for the next loan.
+1. The facilitator opens a session and displays its short URL and QR code.
+2. A participant submits a table label and a short question.
+3. A helper claims the question and visits that table.
+4. The helper resolves it or flags it for a short group explanation.
 
 ## MVP features
-- Kit templates with component counts.
-- Checkout and return checklists.
-- Due-date view and incomplete-return queue.
-- Printable loan summary and CSV export.
+- Account-free participant form with a private request status link.
+- Helper queue ordered by waiting time.
+- Claim, resolve, and group-explanation actions.
+- Session close control and anonymous timing summary.
 
 ## Build approach
-Build a mobile web app with a relational database for kits, loan snapshots, and component returns. Start with one club and steward-only editing. Apply checkout and availability changes in one transaction so a kit cannot have two active loans.
+Build a mobile web app with a relational database and live queue updates. Require helper sign-in, scope access to the session, and update claims atomically to prevent duplicate visits. Start with one organizer and in-person workshops.
 
 ## Validation plan
-Pilot with two clubs for four weeks. Compare kit completeness at the next checkout with their existing ledger and measure the time required to record each handover.
+Observe one baseline workshop and two comparable pilot workshops. Track how long participants stay blocked and whether helpers spend less time scanning the room for raised hands.
 
 ## Biggest risk
-Detailed checklists may slow down casual lending enough that stewards skip them. Let each club start with only the components that are frequently forgotten and expand based on real misses.
-
-## Return rules
-Snapshot the issued component list at checkout so later template edits do not change what a borrower owes. Record counts returned against that snapshot; a partial return keeps the loan open and the kit unavailable. Allow the steward to resolve a missing component with a dated note, such as “replacement received” or “removed from kit,” before closing the loan. A returned kit remains in a review state until its next-use checklist is confirmed.
-
-## Pilot decision and data
-Store a club member label rather than public contact details, restrict the ledger to stewards, and leave automated borrower messaging outside the MVP. For each club, inspect at least 20 loans in both baseline and pilot periods; extend observation if volume is lower. Continue if missing components discovered at the next checkout fall by at least 30% and median checkout-plus-return recording stays under two minutes per loan. Count skipped checklists separately as adoption failures, and ask stewards whether the incomplete-return queue helped resolve them before adding reservations or member accounts.
+Typing a question may be harder than asking aloud, especially during practical work. Require only a table label, offer a “please visit” shortcut, and keep verbal requests available.
