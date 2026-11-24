@@ -33,3 +33,6 @@ Typing a question may be harder than asking aloud, especially during practical w
 
 ## Question handling
 A participant can edit or cancel an unclaimed request through its private status link. Keep one active request per link and retain its original submission time when the wording changes. A helper can release a claim without resetting that time. Flagging a question for a group explanation keeps it open until the facilitator marks the explanation delivered; it does not imply that the participant is already unblocked. If several people share a table, let them use a seat suffix rather than merging their requests automatically.
+
+## Pilot decision and data
+Collect table labels rather than names and delete question text seven days after the session. An observer records first help requests, first helper contact, and repeated requests across both verbal and digital channels. Compare workshops with similar exercises and participant-to-helper ratios, using at least 30 requests per period. Continue if median time to first contact falls by 20% and fewer than 10% of digital requests need a duplicate verbal reminder. Record abandoned forms and participants who prefer verbal help separately before deciding whether the form needs simplification. Keep exports limited to aggregate timing and counts.
