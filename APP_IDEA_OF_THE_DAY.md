@@ -30,3 +30,6 @@ Observe one baseline workshop and two comparable pilot workshops. Track how long
 
 ## Biggest risk
 Typing a question may be harder than asking aloud, especially during practical work. Require only a table label, offer a “please visit” shortcut, and keep verbal requests available.
+
+## Question handling
+A participant can edit or cancel an unclaimed request through its private status link. Keep one active request per link and retain its original submission time when the wording changes. A helper can release a claim without resetting that time. Flagging a question for a group explanation keeps it open until the facilitator marks the explanation delivered; it does not imply that the participant is already unblocked. If several people share a table, let them use a seat suffix rather than merging their requests automatically.
