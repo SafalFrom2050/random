@@ -30,3 +30,9 @@ Recruit eight miniature painters to record one useful mix and recreate it after 
 
 ## Biggest risk
 Drop sizes, pigment behavior, and lighting can make apparently precise recipes difficult to reproduce. Treat amounts as a starting point, preserve the measuring method, and encourage a dried test swatch before applying a recreated mix.
+
+## Recipe and comparison rules
+Scale only amounts entered in the same unit, such as drops; do not silently convert drops to milliliters. If a scaled recipe needs fractions smaller than the user's measuring method supports, offer a larger batch size rather than rounding each ingredient independently. Keep thinner separate from the color ratio and label it with its own method. Photos are visual notes, not calibrated color measurements. Record paint brand, finish, primer, and any dilution alongside each recipe version.
+
+## Pilot decision
+Have each participant recreate the recorded mix using the same paints and measuring method. Compare dried swatches side by side under the same light, asking the painter whether the result is acceptable for their actual project. Advance if at least six of eight reach an acceptable match within two adjustments and median recipe entry takes under two minutes. Log missing details and incorrect unit assumptions separately; revise the form if either prevents a recreation. Avoid automated color matching until the manual workflow proves useful.
