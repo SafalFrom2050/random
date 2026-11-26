@@ -30,3 +30,6 @@ Recruit six makers attending at least two markets. Observe their usual packing p
 
 ## Biggest risk
 A checklist may add work without improving on a seller's paper routine. Keep equipment checks to one tap and make stock counting optional for sellers who only need packing help.
+
+## Counting rules
+Show loaded minus returned as “units not brought back,” not automatically as sales: gifts, samples, damage, and transfers also change the count. Allow sellers to allocate that difference to those reasons or leave it unresolved. Preserve an explicit unknown state for uncounted stock. Keep equipment flags independent from stock arithmetic, and carry unresolved missing gear into the next event as a visible reminder rather than marking it packed by default.
