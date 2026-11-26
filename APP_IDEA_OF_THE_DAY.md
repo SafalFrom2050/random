@@ -33,3 +33,6 @@ A checklist may add work without improving on a seller's paper routine. Keep equ
 
 ## Counting rules
 Show loaded minus returned as “units not brought back,” not automatically as sales: gifts, samples, damage, and transfers also change the count. Allow sellers to allocate that difference to those reasons or leave it unresolved. Preserve an explicit unknown state for uncounted stock. Keep equipment flags independent from stock arithmetic, and carry unresolved missing gear into the next event as a visible reminder rather than marking it packed by default.
+
+## Pilot decision
+Before each event, have the seller identify their essential equipment so forgotten-item counts use a consistent list. Compare baseline and pilot packing time, forgotten essentials discovered at setup, and pack-down reconciliation time. Continue if at least four of six makers reduce forgotten essentials without adding more than five minutes to total preparation and reconciliation. If a seller has no baseline omissions, assess whether they choose to reuse the app at a second event instead of claiming an improvement. Log skipped stock counts separately to decide whether the stock module deserves further work.
