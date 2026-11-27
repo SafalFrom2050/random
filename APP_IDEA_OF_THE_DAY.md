@@ -30,3 +30,8 @@ Recruit five album organizers and two relatives per organizer. Ask them to ident
 
 ## Biggest risk
 Different relatives may confidently remember different things, and the tool could make a guess look definitive. Preserve answer provenance and uncertainty, and require organizer review before a caption becomes approved.
+
+## Review and pilot decision
+Keep submitted answers separate from the approved caption. Record approximate dates as ranges or text such as “early 1980s,” without converting them to an invented exact date. If new answers disagree with an approved caption, flag it for review rather than overwriting it. Strip image location metadata before sharing, let organizers revoke invitations, and provide collection deletion.
+
+Time the organizer's work from sending the first request to producing ten caption records, excluding relatives' waiting time but including matching and reviewing replies. Continue if at least four of five organizers reduce that work by 25% and both relatives in each successful group can submit an answer without assistance. Audit every exported caption against its approval state; any unapproved answer appearing as confirmed blocks expansion until corrected. Count skipped and unresolved photographs separately from successful identifications.
